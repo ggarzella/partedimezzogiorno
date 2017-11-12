@@ -18,8 +18,14 @@ $the_query = new WP_Query($args);
 
 if ($the_query->have_posts()):
 
+    $category = get_category(get_cat_ID('eventi'));
+    $total = $category->category_count;
+
+    $count = 1;
+
     while($the_query->have_posts()):
         $the_query->the_post();
+        $count++;
 
         //$tmp = explode(' ', mezzogiorno_the_post_date(get_the_ID()));
         //$postDate = $tmp[0] . ' ' . $tmp[1] . '<br/>' . $tmp[2];
@@ -45,6 +51,8 @@ if ($the_query->have_posts()):
 
     <?php endwhile; ?>
 
-    <h2 class="other-events"><span>Leggi altri eventi</span></h2>
+    <?php if ($count <= $total): ?>
+        <h2 class="other-events"><span>Leggi altri eventi</span></h2>
+    <?php endif; ?>
 
 <?php endif; ?>
