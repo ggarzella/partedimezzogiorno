@@ -473,24 +473,14 @@ div.content {
     color: #fff;
 }
 
-.form-container .text-container {
+.form-container #form-block {
     border-top: 5px solid #950103;
     border-bottom: 5px solid #950103;
     background-color: #000;
 }
 
-.form-container .text-container .content {
-    background-color: #000;
-}
-
-.form-container .content p {
-    margin: 0;
-}
-
-.form-container .content p:first-letter, .form-container .content:first-letter {
-    color: #fff;
-    font-size: 100%;
-    font-family: Arial, sans-serif;
+.form-container p {
+    padding: 10px 0;
 }
 
 .form-container .title {
@@ -502,9 +492,14 @@ div.content {
     padding: 0 0 10px 0;
 }
 
-.form-group-member label, .form-check label {
+#form-block label {
     font-weight: inherit;
-    padding: 6px 15px;
+    padding: 6px 0;
+}
+
+#form-block .row {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #form-block {
