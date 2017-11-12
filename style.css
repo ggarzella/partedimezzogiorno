@@ -517,26 +517,6 @@ div.content {
 /* F I N E  F O R M */
 
 
-.team-container {
-    width: 100%;
-}
-
-.team-container img {
-    padding: 15px 0;
-}
-
-.social-container img, .footer-social img {
-    height: 35px;
-    display: inline;
-    padding: 0 7px;
-}
-
-.social-container p {
-    text-align: center;
-    padding: 0 0 20px;
-}
-
-
 
 /* I N I Z I O  G R O U P */
 
@@ -854,6 +834,25 @@ div.content {
 .footer-social {
     padding-left: 30px;
     padding-right: 0;
+}
+
+.team-container {
+    width: 100%;
+}
+
+.team-container img {
+    padding: 15px 0;
+}
+
+.social-container img, .footer-social img {
+    height: 35px;
+    display: inline;
+    padding: 0 7px;
+}
+
+.social-container p {
+    text-align: center;
+    padding: 0 0 20px;
 }
 
 /* F I N E  F O O T E R */
@@ -1199,7 +1198,7 @@ p.wp-caption-text:first-letter {
     }
 
     .main-content.generic, #footer, .logo-container.generic {
-        width: 96%;
+        width: 92%;
     }
 
     .main-container { background-size: 50%; }

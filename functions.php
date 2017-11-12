@@ -22,7 +22,7 @@ function mezzogiorno_add_inclusions() {
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/jquery/jquery.min.js' );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js' );
 }
-add_action( 'wp_enqueue_scripts', 'mezzogiorno_add_inclusions' );
+add_action('wp_enqueue_scripts', 'mezzogiorno_add_inclusions');
 
 
 
@@ -459,56 +459,3 @@ function mezzogiorno_body_class($classes)
     return $classes;
 }
 add_filter('body_class', 'mezzogiorno_body_class');
-
-
-
-/*function be_ajax_load_more() {
-
-    $args = array(
-        'category_name' => 'eventi',
-        'posts_per_page' => 4,
-        'paged' => esc_attr($_POST['page']),
-        'meta_key'   => 'meta-box-date',
-        'orderby'    => 'meta_value',
-        'meta_query' => array(
-            array(
-                'key'     => 'meta-box-date',
-                'orderby' => 'meta_value'
-            )
-        )
-    );
-
-    ob_start();
-
-    $loop = new WP_Query($args);
-
-    if ($loop->have_posts()):
-        while($loop->have_posts()):
-            $loop->the_post();
-            get_template_part('includes/loop', 'home');
-        endwhile;
-    endif;
-
-    wp_reset_postdata();
-    $data = ob_get_clean();
-    wp_send_json_success($data);
-    wp_die();
-}
-add_action('wp_ajax_be_ajax_load_more', 'be_ajax_load_more');
-add_action('wp_ajax_nopriv_be_ajax_load_more', 'be_ajax_load_more');
-
-
-
-function be_load_more_js() {
-
-    global $wp_query;
-
-    $args = array(
-        'url'   => admin_url('admin-ajax.php'),
-        'query' => $wp_query->query,
-    );
-
-    wp_enqueue_script('be-load-more', get_stylesheet_directory_uri() . '/js/loadmore.js');
-    wp_localize_script('be-load-more', 'beloadmore', $args);
-}
-add_action('wp_enqueue_scripts', 'be_load_more_js');*/
