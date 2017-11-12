@@ -834,13 +834,13 @@ div.content {
 .footer-container {
     width: 100%;
     background-color: #000;
+    color: #fff;
+    padding: 50px 0;
 }
 
 #footer {
-    padding: 50px 0;
     width: 70%;
     margin: 0 auto;
-    color: #fff;
 }
 
 .footer-social a, .footer-social a:hover {
@@ -1159,7 +1159,7 @@ p.wp-caption-text:first-letter {
 
     #teams-carousel h2 { font-size: 325%; }
 
-    .main-content.generic, .footer-container, .logo-container.generic, #mezzogiorno-navbar-header > div {
+    .main-content.generic, #footer, .logo-container.generic, #mezzogiorno-navbar-header > div {
         width: 85%;
     }
 
@@ -1198,7 +1198,7 @@ p.wp-caption-text:first-letter {
         font-size: 300%;
     }
 
-    .main-content.generic, .footer-container, .logo-container.generic {
+    .main-content.generic, #footer, .logo-container.generic {
         width: 96%;
     }
 
