@@ -1035,6 +1035,10 @@ p.wp-caption-text:first-letter {
         width: 70%;
     }
 
+    .logo-container.generic {
+        width: 70%;
+    }
+
     .navbar-header { float: none; }
 
     .navbar-toggle { display: block; }
