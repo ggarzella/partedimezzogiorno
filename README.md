@@ -1,2 +1,2 @@
 # partedimezzogiorno
-Repository del sito partedimezzogiorno.it
+Tema del sito partedimezzogiorno.it
