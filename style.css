@@ -1013,6 +1013,10 @@ p.wp-caption-text:first-letter {
         width: 100%;
     }
 
+    .group-container .title, .group-container .subtitle {
+        text-align: left;
+    }
+
     .courtesy .logo-container { margin-top: inherit; width: inherit; }
 }
 
