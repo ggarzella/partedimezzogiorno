@@ -1,2 +1,2 @@
 # partedimezzogiorno
-Tema del sito partedimezzogiorno.it
+Tema wordpress del sito partedimezzogiorno.it
