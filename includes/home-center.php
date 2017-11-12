@@ -45,6 +45,6 @@ if ($the_query->have_posts()):
 
     <?php endwhile; ?>
 
-    <div class="post-listing"></div>
+    <h2 class="other-events"><span>Leggi altri eventi</span></h2>
 
 <?php endif; ?>

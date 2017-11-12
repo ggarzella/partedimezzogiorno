@@ -736,10 +736,13 @@ div.content {
     margin: 0;
 }
 
+.other-events span {
+    cursor: pointer;
+}
+
 .press-review {
     text-align: left;
 }
-
 
 /* F I N E  O T H E R  P O S T S */
 
@@ -993,32 +996,6 @@ p.wp-caption-text:first-letter {
 }
 
 /* F I N E  C O U R T E S Y */
-
-
-
-/* I N I Z I O  L O A D M O R E */
-
-/*.load-more {
-    background-color: #ddd;
-    border-radius: 2px;
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    font-size: 0.875rem;
-    font-weight: 800;
-    letter-spacing:1px;
-    cursor:pointer;
-    text-transform: uppercase;
-    padding: 10px 0;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
-}
-
-.load-more:hover {
-    background-color: #767676;
-    color: #fff;
-}*/
-
-/* F I N E  L O A D M O R E *
 
 
 /* I N I Z I O  M E D I A  Q U E R I E S */
