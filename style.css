@@ -35,6 +35,40 @@ body {
 
 .container-fluid { padding: 0; }
 
+/*.page .box-container,
+.single .box-container {
+    padding: 15px 0;
+    color: #DC0103;
+}
+
+.page .title-container,
+.single .title-container {
+    padding: 15px 0;
+    color: #DC0103;
+}
+
+.page .title,
+.single .title {
+    font-size: 280%;
+    padding: 0;
+}
+
+.page .content,
+.single .content {
+    min-height: 400px;
+    margin-bottom: 20px;
+}
+
+.page .content-container,
+.single .content-container {
+    border-bottom: 8px solid #950103;
+    background-color: #fff;
+}
+
+.page-container, .single-container, .list-container, .group-container {
+    margin-bottom: 20px;
+}*/
+
 @font-face {
     font-family: BebasNeue;
     src: url("fonts/BebasNeue.otf");
@@ -479,10 +513,6 @@ div.content {
     background-color: #000;
 }
 
-.form-container p {
-    padding: 10px 0;
-}
-
 .form-container .title {
     color: #fff;
     font-size: 180%;
@@ -503,7 +533,7 @@ div.content {
 }
 
 #form-block {
-    padding: 0 12px 20px;
+    padding: 14px;
 }
 
 #form-block p {
@@ -1063,7 +1093,7 @@ p.wp-caption-text:first-letter {
 @media (max-width: 480px) {
 
     #mezzogiorno-navbar-header > div {
-        width: 96%;
+        width: 92%;
     }
 
     .carousel-caption {
