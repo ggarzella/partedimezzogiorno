@@ -1,6 +1,10 @@
+<div class="async-container">
+
+</div>
+
 <?php
 
-$args = array(
+/*$args = array(
     'category_name' => 'eventi',
     'posts_per_page' => 4,
     'meta_key'   => 'meta-box-date',
