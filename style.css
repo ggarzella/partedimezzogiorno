@@ -676,7 +676,7 @@ div.content {
     height: auto;
 }
 
-.member .title-container {
+.member-container .title-container {
     background-color: #950103;
     color: white;
     font-size: 160%;
