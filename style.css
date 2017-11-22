@@ -35,40 +35,6 @@ body {
 
 .container-fluid { padding: 0; }
 
-/*.page .box-container,
-.single .box-container {
-    padding: 15px 0;
-    color: #DC0103;
-}
-
-.page .title-container,
-.single .title-container {
-    padding: 15px 0;
-    color: #DC0103;
-}
-
-.page .title,
-.single .title {
-    font-size: 280%;
-    padding: 0;
-}
-
-.page .content,
-.single .content {
-    min-height: 400px;
-    margin-bottom: 20px;
-}
-
-.page .content-container,
-.single .content-container {
-    border-bottom: 8px solid #950103;
-    background-color: #fff;
-}
-
-.page-container, .single-container, .list-container, .group-container {
-    margin-bottom: 20px;
-}*/
-
 @font-face {
     font-family: BebasNeue;
     src: url("fonts/BebasNeue.otf");
@@ -129,10 +95,6 @@ h2, h4 {
     padding-bottom: 100px;
 }
 
-/*.main-content:last-child {
-    padding-bottom: 100px;
-}*/
-
 .main-content h2 {
     text-transform: uppercase;
 }
@@ -189,7 +151,7 @@ h2, h4 {
 
 
 
-/* I N I Z I O  N A V M E N U */
+/* I N I Z I O  N A V  M E N U */
 
 #mezzogiorno-navbar-header {
     width: 100%;
@@ -258,7 +220,7 @@ h2, h4 {
     position: relative;
 }
 
-/* F I N E  N A V M E N U */
+/* F I N E  N A V  M E N U */
 
 
 
@@ -268,11 +230,11 @@ h2, h4 {
     margin: 0 auto;
 }
 
-.home .logo-container, .member .logo-container {
+.home .logo-container {
     width: 70%;
 }
 
-.list .logo-container, .page .logo-container, .single .logo-container, .news .logo-container {
+.list .logo-container, .page .logo-container, .single .logo-container, .news .logo-container, .member .logo-container {
     width: 60%;
 }
 
@@ -280,7 +242,7 @@ h2, h4 {
     width: 75%;
 }
 
-.page .main-content, .single .main-content {
+.page .main-content, .single .main-content, .member .main-content {
     width: 60%;
 }
 
@@ -664,10 +626,6 @@ div.content {
 .list .content-container {
     background-color: inherit;
     overflow: inherit;
-}
-
-.member .main-content {
-    width: 70%;
 }
 
 .member .more-link > a {
