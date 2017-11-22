@@ -373,24 +373,35 @@ function mezzogiorno_custom_excerpt($string, $length_in_words) {
 
 
 
-function custom_rewrite_rule() {
+function custom_rewrite_rule()
+{
+    global $wp_rewrite;
 
-    add_rewrite_rule('(([^/]*)/)*membro/([0-9]+)/([0-9]+)/?', 'index.php?group_id=$matches[3]&member_id=$matches[4]', 'top');
+    add_rewrite_rule('([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z]+)/membro/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[3]&pagename=membro&groupid=$matches[4]&memberid=$matches[5]', 'top');
+
+    add_rewrite_rule('notizie/?', 'index.php?pagename=notizie', 'top');
+    //add_rewrite_rule('([a-zA-Z]+/){3}membro/([0-9]+)/([0-9]+)/?', 'index.php?root=$matches[1]&pagename=membro&group_id=$matches[2]&member_id=$matches[3]', 'top');
+    //add_rewrite_rule('(([^/]*)/)*membro/([0-9]+)/([0-9]+)/?', 'index.php?root=$matches[1]&pagename=membro&group_id=$matches[2]&member_id=$matches[3]', 'top');
+
+    add_rewrite_endpoint(get_query_var('pagename'), EP_PERMALINK | EP_PAGES);
+
+    $wp_rewrite->flush_rules();
 }
 add_action('init', 'custom_rewrite_rule');
 
 
 
-function custom_rewrite_tag() {
-
-    add_rewrite_tag('%group_id%', '([0-9]+)');
-    add_rewrite_tag('%member_id%', '([0-9]+)');
+function custom_rewrite_tag()
+{
+    add_rewrite_tag('%groupname%', '([a-zA-Z]+)');
+    add_rewrite_tag('%groupid%', '([0-9]+)');
+    add_rewrite_tag('%memberid%', '([0-9]+)');
 }
 add_action('init', 'custom_rewrite_tag', 10, 0);
 
 
 
-function prefix_url_rewrite_templates() {
+/*function prefix_url_rewrite_templates() {
 
     if (get_query_var('group_id') && get_query_var('member_id') && mezzogiorno_url_contain_param('membro')) {
         add_filter( 'template_include', function() {
@@ -408,15 +419,31 @@ function prefix_url_rewrite_templates() {
         });
     }
 }
-add_action('template_redirect', 'prefix_url_rewrite_templates');
+add_action('template_redirect', 'prefix_url_rewrite_templates');*/
 
 
 
-function mezzogiorno_url_contain_param($name) {
+function mezzogiorno_page_template($template)
+{
+    if (!is_user_logged_in())
+    {
+        set_query_var('pagename', 'courtesy');
+        $page = 'page-courtesy.php';
+    }
+    else
+    {
+        $pagename = get_query_var('pagename');
+        $page = "page-$pagename.php";
+    }
 
-    $url_path = trim(parse_url(add_query_arg(array()), PHP_URL_PATH), '/');
-    return strpos($url_path, $name) !== false;
+    $new_template = locate_template(array($page)); //sennò get_template_directory() . "/$page";
+
+    if ('' != $new_template)
+        return $new_template;
+
+    return $template;
 }
+add_filter('template_include', 'mezzogiorno_page_template', 99);
 
 
 
@@ -429,9 +456,9 @@ function mezzogiorno_remove_class($className, &$classes)
 
 
 
-function mezzogiorno_is_page_template($name) {
-
-    if ($GLOBALS['current_page_template'] === $name || is_page_template($name))
+function mezzogiorno_is_page($name)
+{
+    if (get_query_var('pagename') === $name)
         return true;
 
     return false;
@@ -443,14 +470,16 @@ function mezzogiorno_body_class($classes)
 {
     mezzogiorno_remove_class('home', $classes);
 
-    if (mezzogiorno_is_page_template('page-gruppo-civile.php') || mezzogiorno_is_page_template('page-comando.php'))
+    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-comando.php'))
         $class = 'group';
-    else if (mezzogiorno_is_page_template('page-lista.php'))
+    else if (is_page_template('page-lista.php')) /* implementare come membro e courtesy */
         $class = 'list';
-    else if (mezzogiorno_is_page_template('page-courtesy.php'))
+    else if (mezzogiorno_is_page('courtesy'))
         $class = 'courtesy';
-    else if (mezzogiorno_is_page_template('page-membro.php'))
+    else if (mezzogiorno_is_page('membro'))
         $class = 'member';
+    else if (mezzogiorno_is_page('notizie'))
+        $class = 'news';
     else if (!(is_page() && is_singular()) && is_home())
         $class = 'home';
 

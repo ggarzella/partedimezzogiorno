@@ -272,7 +272,7 @@ h2, h4 {
     width: 70%;
 }
 
-.list .logo-container, .page .logo-container, .single .logo-container {
+.list .logo-container, .page .logo-container, .single .logo-container, .news .logo-container {
     width: 60%;
 }
 
@@ -346,6 +346,18 @@ body:not(.home):not(.courtesy) .logo {
 
 
 /* I N I Z I O  N E W S */
+
+.news .title > a, .news .title > a:hover, .news .title > a:focus {
+    color: #fff;
+}
+
+.news .more-link > a, .news .more-link > a:focus, .news .more-link > a:hover {
+    color: #950103;
+}
+
+.news .main-content {
+    width: 60%;
+}
 
 .news-single-container {
     background-color: #9f191f;
