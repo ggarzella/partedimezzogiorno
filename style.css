@@ -408,6 +408,10 @@ body:not(.home):not(.courtesy) .logo {
     min-height: 400px;
 }
 
+.member-container .content {
+    min-height: 250px;
+}
+
 .group .content {
     padding: 15px;
 }
@@ -440,7 +444,7 @@ body:not(.home):not(.courtesy) .logo {
     margin-bottom: 20px;
 }
 
-.page .title, .single .title {
+.page .title, .single .title, .member .title {
     font-size: 280%;
     padding: 0;
 }
@@ -489,23 +493,23 @@ div.content {
 
 /* I N I Z I O  L I S T */
 
-.list-container .title {
+.list .title {
     font-size: 300%;
     padding: 0;
 }
 
-.list-container .content a,
-.list-container .content a:visited,
-.list-container .content a:focus {
+.list .content a,
+.list .content a:visited,
+.list .content a:focus {
     text-decoration: none;
     color: #000;
 }
 
-.list-container .content {
+.list .content {
     background-color: inherit;
 }
 
-.list-container .more-link {
+.list .more-link {
     background-color: #921b11;
     padding-right: 10px;
 }
@@ -682,6 +686,11 @@ div.content {
     font-size: 160%;
     font-family: BebasNeue;
     padding: 15px;
+}
+
+.member-container .more-link > a {
+    color: #950103;
+    overflow: auto;
 }
 
 .group .title-container.minor h2.title {

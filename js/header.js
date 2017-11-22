@@ -35,7 +35,7 @@ equalheight = function(container)
 
 $(document).ready(function()
 {
-	equalheight('.equal-height.group-container .title-container');
+	equalheight('.equal-height.group .title-container');
 	equalheight('.equal-height .member-container .title-container');
 	equalheight('.equal-height.other-posts-container .title-container');
 	equalheight('.equal-height .content');
@@ -49,7 +49,7 @@ $(document).ready(function()
 
 
 $(window).resize(function(){
-	equalheight('.equal-height.group-container .title-container');
+	equalheight('.equal-height.group .title-container');
 	equalheight('.equal-height .member-container .title-container');
 	equalheight('.equal-height.other-posts-container .title-container');
 	equalheight('.equal-height .content');
