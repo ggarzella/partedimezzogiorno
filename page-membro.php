@@ -1,11 +1,11 @@
 <?php
 
-include('wp-load.php');
+//include('wp-load.php');
 
 get_header();
 
-$postId = get_query_var('group_id');
-$keyId = get_query_var('member_id') - 1;
+$postId = get_query_var('groupid');
+$keyId = get_query_var('memberid') - 1;
 
 $post = get_post($postId); //in realtà questa informazione la devo ricavare dal file json
 

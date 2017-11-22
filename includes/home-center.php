@@ -1,4 +1,4 @@
-<div class="async-container">
+<div class="async-container category-eventi">
 
 </div>
 
