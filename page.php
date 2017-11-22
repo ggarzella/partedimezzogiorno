@@ -10,7 +10,7 @@
 
         the_post();
 ?>
-        <div class="page-container">
+        <div class="box-container">
             <h2 class="title-container">
                 <span class="title"><?php mezzogiorno_get_the_title(); ?></span>
             </h2>

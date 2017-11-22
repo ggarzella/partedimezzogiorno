@@ -312,18 +312,18 @@ body:not(.home):not(.courtesy) .logo {
     color: #fff;
 }
 
-.home-container {
+.home .box-container {
     background-color: #fff;
     margin-bottom: 40px
 }
 
-.home-container .title-container {
+.home .title-container {
     background-color: #9f191f;
     color: #fff;
     padding: 15px;
 }
 
-.home-container .title {
+.home .title {
     font-size: 180%;
     padding: 0;
 }
@@ -333,7 +333,7 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0;
 }
 
-.home-container img, .member-container img {
+.home img, .member-container img {
     padding: 15px;
 }
 
@@ -396,26 +396,27 @@ body:not(.home):not(.courtesy) .logo {
 
 /* I N I Z I O  P A G E */
 
-.page-container .title-container,
-.single-container .title-container,
-.list-container .title-container {
+.page .title-container,
+.member .title-container,
+.single .title-container,
+.list .title-container {
     padding: 15px 0;
     color: #DC0103;
 }
 
-.page-container .content, .single-container .content {
+.page .content, .single .content {
     min-height: 400px;
 }
 
-.group-container .content {
+.group .content {
     padding: 15px;
 }
 
-.group-container .description img {
+.group .description img {
     padding: 15px 15px 15px 0;
 }
 
-.group-container .description .content {
+.group .description .content {
     padding: 15px 0;
 }
 
@@ -423,11 +424,11 @@ body:not(.home):not(.courtesy) .logo {
     min-height: 200px;
 }
 
-.group-container .content.topdownnopadding {
+.group .content.topdownnopadding {
     padding: 15px 0;
 }
 
-.list-container .content p {
+.list .content p {
     color: #ffffff;
 }
 
@@ -435,11 +436,11 @@ body:not(.home):not(.courtesy) .logo {
     width: 60%;
 }
 
-.page-container, .single-container, .list-container, .group-container {
+.page .box-container, .member .box-container, .single .box-container, .list .box-container, .group .box-container {
     margin-bottom: 20px;
 }
 
-.page-container .title, .single-container .title {
+.page .title, .single .title {
     font-size: 280%;
     padding: 0;
 }
@@ -469,7 +470,7 @@ div.content {
 
 /* I N I Z I O  S I N G L E */
 
-.single-container .title {
+.single .title {
     font-size: 280%;
 }
 
@@ -603,20 +604,20 @@ div.content {
     width: auto;
 }*/
 
-.group-container .title {
+.group .title {
     font-size: 280%;
     text-align: right;
 }
 
-.list .group-container .title {
+.list .title {
     text-align: center;
 }
 
-.group-container .description {
+.group .description {
     color: #FFFFFF;
 }
 
-.group-container .description p:first-letter {
+.group .description p:first-letter {
     color: #DC0103;
     font-size: 250%;
     font-family: BebasNeue;
@@ -631,16 +632,16 @@ div.content {
     padding-bottom: 10px;
 }
 
-.group-container .other-title {
+.group .other-title {
     text-align: left;
     color: #fff;
 }
 
-.group-container > :not(.minor) .member-container {
+.group > .box-container :not(.minor) .member-container {
     border-bottom: 8px solid #950103;
 }
 
-.group-container .member-container {
+.group .member-container {
     margin-bottom: 30px;
     background-color: #fff;
     overflow: auto;
@@ -656,7 +657,7 @@ div.content {
     padding-bottom: 50px;
 }
 
-.list-container .group-container .content-container {
+.list .content-container {
     background-color: inherit;
     overflow: inherit;
 }
@@ -665,7 +666,7 @@ div.content {
     width: 70%;
 }
 
-.member-container .more-link > a {
+.member .more-link > a {
     color: #950103;
     overflow: auto;
 }
@@ -675,7 +676,7 @@ div.content {
     height: auto;
 }
 
-.member-container .title-container {
+.member .title-container {
     background-color: #950103;
     color: white;
     font-size: 160%;
@@ -683,13 +684,13 @@ div.content {
     padding: 15px;
 }
 
-.group-container .title-container.minor h2.title {
+.group .title-container.minor h2.title {
     font-size: 280%;
     text-align: left;
     padding: 15px 0;
 }
 
-.group-container .other-posts {
+.group .other-posts {
     padding-top: 60px;
 }
 
@@ -1055,7 +1056,7 @@ p.wp-caption-text:first-letter {
         width: 100%;
     }
 
-    .group-container .title, .group-container .subtitle {
+    .group .title, .group .subtitle {
         text-align: left;
     }
 

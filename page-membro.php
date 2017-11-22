@@ -22,7 +22,7 @@ $group = $post->post_title;
 <?php if ($role): ?>
 
 <div class="main-content generic">
-    <div class="page-container">
+    <div class="box-container">
         <h2 class="title-container">
             <span class="subtitle"><?php echo $group;  ?></span>
             <br/>

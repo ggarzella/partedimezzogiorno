@@ -16,7 +16,7 @@
 
             ?>
 
-            <div class="group-container">
+            <div class="box-container">
 
                 <div class="main row">
                     <div class="col-md-4 col-sm-12">

@@ -9,7 +9,7 @@
         //$postDate = $tmp[0] . ' ' . $tmp[1] . '<br/>' . $tmp[2];
         ?>
 
-        <div class="home-container">
+        <div class="box-container">
             <h2 class="title-container">
                 <!--<span class="title-date col-md-2 col-sm-2 col-xs-2 text-center">
                     <?php echo $postDate; ?>
