@@ -234,15 +234,15 @@ h2, h4 {
     width: 70%;
 }
 
-.list .logo-container, .page .logo-container, .single .logo-container, .news .logo-container, .member .logo-container {
+.list .logo-container, .page .logo-container, .single .logo-container, .news .logo-container, .member .logo-container, .news .logo-container {
     width: 60%;
 }
 
-.group .logo-container{
+.group .logo-container {
     width: 75%;
 }
 
-.page .main-content, .single .main-content, .member .main-content {
+.page .main-content, .single .main-content, .member .main-content, .news .main-content {
     width: 60%;
 }
 
@@ -274,18 +274,18 @@ body:not(.home):not(.courtesy) .logo {
     color: #fff;
 }
 
-.home .box-container {
+.home .box-container, .news .box-container {
     background-color: #fff;
     margin-bottom: 40px
 }
 
-.home .title-container {
+.home .title-container, .news .title-container {
     background-color: #9f191f;
     color: #fff;
     padding: 15px;
 }
 
-.home .title {
+.home .title, .news .title {
     font-size: 180%;
     padding: 0;
 }
@@ -321,10 +321,14 @@ body:not(.home):not(.courtesy) .logo {
     width: 60%;
 }
 
-.news-single-container {
+.news-container {
     background-color: #9f191f;
     color: #fff;
     padding: 14px 14px;
+}
+
+.news-single-container {
+    padding: 14px 0;
 }
 
 .news-container .title {
@@ -565,11 +569,6 @@ div.content {
     padding: 10px 0 10px 10px;
 }
 
-/*.group-container .img-container img {
-    height: 200px;
-    width: auto;
-}*/
-
 .group .title {
     font-size: 280%;
     text-align: right;
@@ -660,26 +659,6 @@ div.content {
 .group .other-posts {
     padding-top: 60px;
 }
-
-/*
-.group-container div.content .membro .membro-img .membro-img-p {
-    text-align: center;
-}
-
-.group-container div.content .membro .membro-img .membro-img-p img {
-    height: 200px;
-    width: auto;
-}
-
-.group-container div.content .membro .membro-bio {
-    padding: 8px;
-}
-
-.group-container div.content .membro .membro-bio a.membri-leggi-tutto{
-    display: block;
-    color: #DC0103;
-    text-transform: uppercase;
-}*/
 
 /* F I N E  G R O U P */
 

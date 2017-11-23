@@ -6,28 +6,34 @@ $the_query = new WP_Query($args);
 
 if ($the_query->have_posts()): ?>
 
-    <div class="news-container">
+    <div class="news-home">
 
         <h2 class="title">Notizie</h2>
 
-        <?php while ($the_query->have_posts()):
+        <div class="news-container">
 
-            $the_query->the_post();
+            <?php while ($the_query->have_posts()):
 
-            ?>
+                $the_query->the_post();
 
-            <div class="news-single-container">
-                <a href="<?php the_permalink(); ?>">
-                    <p class="title-date">
-                        <?php echo mezzogiorno_the_post_date(get_the_ID()); ?>
-                    </p>
-                    <p class="content">
-                        <?php the_title(); ?>
-                    </p>
-                </a>
-            </div>
+                ?>
 
-        <?php endwhile; ?>
+                <div class="news-single-container">
+                    <a href="<?php the_permalink(); ?>">
+                        <p class="title-date">
+                            <?php echo mezzogiorno_the_post_date(get_the_ID()); ?>
+                        </p>
+                        <p class="content">
+                            <?php the_title(); ?>
+                        </p>
+                    </a>
+                </div>
+
+            <?php endwhile; ?>
+
+            <a href="<?php echo site_url('notizie'); ?>">Leggi le altre notizie</a>
+
+        </div>
 
     </div>
 
