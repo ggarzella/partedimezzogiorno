@@ -160,7 +160,7 @@ body:not(.home):not(.courtesy) .logo {
     padding: 15px;
 }
 
-.home .more-link > a, .home .more-link > a:focus, .home .more-link > a:hover {
+.home .box-container .more-link > a, .home .box-container .more-link > a:focus, .home .box-container .more-link > a:hover {
     color: #950103;
 }
 
