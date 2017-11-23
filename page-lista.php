@@ -32,7 +32,7 @@
 
                         ?>
 
-                        <div class="group-container col-md-4 equal-height">
+                        <div class="col-md-4 equal-height">
                             <div class="title-container">
                                 <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
                             </div>

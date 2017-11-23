@@ -31,7 +31,9 @@ if ($the_query->have_posts()): ?>
 
             <?php endwhile; ?>
 
-            <a href="<?php echo site_url('notizie'); ?>">Leggi le altre notizie</a>
+            <div class="more-link">
+                <a href="<?php echo site_url('notizie'); ?>">Leggi altre notizie</a>
+            </div>
 
         </div>
 

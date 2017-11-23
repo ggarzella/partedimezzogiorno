@@ -11,145 +11,6 @@ Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, 
 Text Domain: mezzogiorno
 */
 
-body {
-    background-color: #272727;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-#gradient {
-    background-image: linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), url("images/background01.jpg");
-    background-repeat: repeat-x, no-repeat;
-    background-position: bottom, 0 0;
-    background: -moz-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)),   -webkit-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), -ms-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0));
-    background-size: 100% 150px, 100% auto;
-    width: 100%;
-    margin: 0;
-    padding-top: 20%;
-}
-
-.nopadding {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.container-fluid { padding: 0; }
-
-@font-face {
-    font-family: BebasNeue;
-    src: url("fonts/BebasNeue.otf");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: EnchantedLand;
-    src: url("fonts/Enchanted Land.otf");
-    font-weight: normal;
-}
-
-a, a:visited, a:hover, a:focus {
-    text-decoration: none;
-    color: #fff;
-}
-
-h2, h4 {
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.btn.btn-primary {
-    background-color: #000; /* colore di sfondo    */
-    color: #fff;               /* colore del testo    */
-    padding: 5px;                /* padding             */
-}
-
-.modify-title {
-    font-size: 130%;
-    margin: 0;
-    padding: 0;
-}
-
-.separator30 {
-    display: block;
-    padding-bottom: 30px;
-}
-
-.separator45 {
-    display: block;
-    padding-bottom: 45px;
-}
-
-.main-container {
-    width: 100%;
-    height: auto;
-    background-image: url("images/logo-bkg-mezzogiorno.png");
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    background-size: 30%;
-
-}
-
-.main-content {
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
-
-.main-content h2 {
-    text-transform: uppercase;
-}
-
-.main-content p {
-    margin: 0;
-}
-
-.main-content #center {
-    padding-top: 100px;
-}
-
-.title-container {
-    font-family: BebasNeue;
-}
-
-.title {
-    letter-spacing: 1px;
-}
-
-.title > a, .title > a:hover, .title > a:focus {
-    color: #DC0103;
-}
-
-.title-date {
-    font-family: BebasNeue;
-    font-size: 120%;
-    margin: 0;
-    padding: 0;
-}
-
-.content {
-    padding: 15px;
-}
-
-.content p {
-    min-height: 100px;
-}
-
-.content p:first-letter, .content:first-letter {
-    color: #950103;
-    font-size: 250%;
-    font-family: BebasNeue;
-}
-
-.more-link {
-    padding: 10px;
-    text-align: right;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: BebasNeue;
-    font-size: 140%;
-}
-
-
 
 /* I N I Z I O  N A V  M E N U */
 
@@ -270,7 +131,7 @@ body:not(.home):not(.courtesy) .logo {
     width: 70%;
 }
 
-.home .title > a, .home .title > a:hover, .home .title > a:focus {
+.home .box-container .title > a, .home .box-container .title > a:hover, .home .box-container .title > a:focus {
     color: #fff;
 }
 
@@ -279,13 +140,13 @@ body:not(.home):not(.courtesy) .logo {
     margin-bottom: 40px
 }
 
-.home .title-container, .news .title-container {
+.home .box-container .title-container, .news .title-container {
     background-color: #9f191f;
     color: #fff;
     padding: 15px;
 }
 
-.home .title, .news .title {
+.home .box-container .title, .news .title {
     font-size: 180%;
     padding: 0;
 }
@@ -301,6 +162,21 @@ body:not(.home):not(.courtesy) .logo {
 
 .home .more-link > a, .home .more-link > a:focus, .home .more-link > a:hover {
     color: #950103;
+}
+
+.home .more-link > a, .home .more-link > a:focus, .home .more-link > a:hover {
+    color: #ffffff;
+}
+
+.home .title-container {
+    background-color: inherit;
+    padding: 35px 0 15px;
+}
+
+.home .title {
+    font-size: 280%;
+    padding: 0;
+    color: #ffffff;
 }
 
 /* F I N E  H O M E */
@@ -496,7 +372,7 @@ div.content {
     background-color: #000;
 }
 
-.form-container .title {
+.form-container .title, .news-home .title {
     color: #fff;
     font-size: 180%;
     font-family: BebasNeue;
@@ -1182,4 +1058,144 @@ p.wp-caption-text:first-letter {
     .courtesy .logo-container {  margin-top: inherit; width: inherit; }
 }
 
-/* F I N E  M E D I A  Q U E R I E S S S */
+/* F I N E  M E D I A  Q U E R I E S */
+
+
+
+/* I N I Z I O  G E N E R A L */
+
+
+body {
+    background-color: #272727;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#gradient {
+    background-image: linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), url("images/background01.jpg");
+    background-repeat: repeat-x, no-repeat;
+    background-position: bottom, 0 0;
+    background: -moz-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)),   -webkit-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), -ms-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0));
+    background-size: 100% 150px, 100% auto;
+    width: 100%;
+    margin: 0;
+    padding-top: 20%;
+}
+
+.container-fluid { padding: 0; }
+
+@font-face {
+    font-family: BebasNeue;
+    src: url("fonts/BebasNeue.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: EnchantedLand;
+    src: url("fonts/Enchanted Land.otf");
+    font-weight: normal;
+}
+
+a, a:visited, a:hover, a:focus {
+    text-decoration: none;
+    color: #fff;
+}
+
+h2, h4 {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn.btn-primary {
+    background-color: #000; /* colore di sfondo    */
+    color: #fff;               /* colore del testo    */
+    padding: 5px;                /* padding             */
+}
+
+.modify-title {
+    font-size: 130%;
+    margin: 0;
+    padding: 0;
+}
+
+.separator30 {
+    display: block;
+    padding-bottom: 30px;
+}
+
+.separator45 {
+    display: block;
+    padding-bottom: 45px;
+}
+
+.main-container {
+    width: 100%;
+    height: auto;
+    background-image: url("images/logo-bkg-mezzogiorno.png");
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 30%;
+
+}
+
+.main-content {
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.main-content h2 {
+    text-transform: uppercase;
+}
+
+.main-content p {
+    margin: 0;
+}
+
+.main-content #center {
+    padding-top: 100px;
+}
+
+.title-container {
+    font-family: BebasNeue;
+}
+
+.title {
+    letter-spacing: 1px;
+}
+
+.title > a, .title > a:hover, .title > a:focus {
+    color: #DC0103;
+}
+
+.title-date {
+    font-family: BebasNeue;
+    font-size: 120%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    padding: 15px;
+}
+
+.content p {
+    min-height: 100px;
+}
+
+.content p:first-letter, .content:first-letter {
+    color: #950103;
+    font-size: 250%;
+    font-family: BebasNeue;
+}
+
+.more-link {
+    padding: 10px;
+    text-align: right;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: BebasNeue;
+    font-size: 140%;
+}
+
+/* F I N E  G E N E R A L */

@@ -35,10 +35,8 @@ equalheight = function(container)
 
 $(document).ready(function()
 {
-	equalheight('.equal-height.group .title-container');
-	equalheight('.equal-height .member-container .title-container');
-	equalheight('.equal-height.other-posts-container .title-container');
-	equalheight('.equal-height .content');
+	equalheight('.box-container .equal-height .title-container');
+	equalheight('.box-container .equal-height .content');
 
 	$('.dropdown-submenu a[href="#"]').on("click", function(e) {
 		$(this).next('ul').toggle();
@@ -49,8 +47,6 @@ $(document).ready(function()
 
 
 $(window).resize(function(){
-	equalheight('.equal-height.group .title-container');
-	equalheight('.equal-height .member-container .title-container');
-	equalheight('.equal-height.other-posts-container .title-container');
-	equalheight('.equal-height .content');
+	equalheight('.box-container .equal-height .title-container');
+	equalheight('.box-container .equal-height .content');
 });

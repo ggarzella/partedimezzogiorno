@@ -5,6 +5,9 @@
         <div class="row">
 
             <div class="col-md-8 col-sm-12 col-xs-12" id="home-block-center">
+                <h2 class="main title-container">
+                    <span class="title">Eventi</span>
+                </h2>
                 <?php get_template_part('includes/home', 'center'); ?>
             </div>
 
