@@ -32,9 +32,6 @@
 
                         <div class="col-md-4 col-sm-4 equal-height">
                             <div class="box-container">
-                                <div class="title-container">
-                                    <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
-                                </div>
                                 <div class="content-container">
                                     <div class="content">
                                         <?php the_post_thumbnail('thumbnail', array('class' => 'aligncenter img-responsive')); ?>
@@ -42,7 +39,10 @@
                                         <p><?php echo get_excerpt(350); ?></p>-->
                                     </div>
                                 </div>
-                                <div class="more-link text-left"><a href="<?php echo get_permalink(); ?>">Leggi tutto</a></div>
+                                <div class="title-container">
+                                    <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+                                </div>
+                                <div class="more-link"><a href="<?php echo get_permalink(); ?>">Vai al gruppo</a></div>
                             </div>
                         </div>
 

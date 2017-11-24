@@ -49,8 +49,8 @@
                                             <?php echo mezzogiorno_custom_excerpt(get_post_meta(get_the_ID(), "description".$index, true), 300); ?>
                                         </p>
                                     </div>
-                                    <div class="more-link text-left"><a href="<?php echo get_permalink() . get_the_ID() . '/' . ($index + 1); ?>">Leggi tutto</a></div>
                                 </div>
+                                <div class="more-link"><a href="<?php echo get_permalink() . get_the_ID() . '/' . ($index + 1); ?>">Leggi tutto</a></div>
                             </div>
                         </div>
 

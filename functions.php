@@ -474,8 +474,10 @@ function mezzogiorno_body_class($classes)
 
     $classes = array();
 
-    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-comando.php'))
+    if (is_page_template('page-gruppo-civile.php'))
         $class = 'group';
+    else if (is_page_template('page-comando.php'))
+        $class = 'group comando';
     else if (is_page_template('page-lista.php')) /* implementare come membro e courtesy */
         $class = 'list';
     else if (mezzogiorno_is_page('courtesy'))

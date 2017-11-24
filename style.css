@@ -131,6 +131,10 @@ body:not(.home):not(.courtesy) .logo {
     width: 70%;
 }
 
+.home .content-container {
+    padding: 10px;
+}
+
 .home .main-container .title > a, .home .main-container .title > a:hover, .home .main-container .title > a:focus {
     color: #fff;
 }
@@ -151,10 +155,6 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0;
 }
 
-.home img, .group .box-container img {
-    padding: 15px;
-}
-
 .home .box-container .more-link > a, .home .box-container .more-link > a:focus, .home .box-container .more-link > a:hover {
     color: #950103;
 }
@@ -172,6 +172,14 @@ body:not(.home):not(.courtesy) .logo {
     font-size: 280%;
     padding: 0;
     color: #ffffff;
+}
+
+.home .box-container .content {
+    min-height: 150px;
+}
+
+.home .box-container img, .news .box-container img, .comando.group .box-container img {
+    margin: 0 10px 5px 0;
 }
 
 /* F I N E  H O M E */
@@ -239,34 +247,15 @@ body:not(.home):not(.courtesy) .logo {
 .list .title-container {
     padding: 15px 0;
     color: #DC0103;
+    background-color: inherit;
 }
 
 .page .content, .single .content {
     min-height: 400px;
 }
 
-.group .box-container .content {
-    min-height: 250px;
-}
-
-.group .content {
-    padding: 15px;
-}
-
-.group .box-container {
-    min-height: 200px;
-}
-
-.group .content.topdownnopadding {
-    padding: 15px 0;
-}
-
-.list .content p {
-    color: #ffffff;
-}
-
-.list .main-container {
-    width: 60%;
+.page .box-container {
+    background-color: inherit;
 }
 
 .page .title, .single .title, .member .title {
@@ -274,18 +263,8 @@ body:not(.home):not(.courtesy) .logo {
     padding: 0;
 }
 
-div.content {
-    padding: 12px 20px 40px;
-    background-color: inherit;
-}
-
 .page div.content, .single div.content, .member div.content {
     color: #000;
-}
-
-.list div.content {
-    background-color: inherit;
-    color: #fff;
 }
 
 .page-logo p, .single-logo p {
@@ -300,6 +279,10 @@ div.content {
 
 .single .title {
     font-size: 280%;
+}
+
+.single .box-container {
+    background-color: inherit;
 }
 
 .page .title-date-container, .single .title-date-container {
@@ -317,9 +300,27 @@ div.content {
 
 /* I N I Z I O  L I S T */
 
+.list .main-container {
+    width: 60%;
+}
+
+.list .box-container {
+    border-bottom: inherit;
+    background-color: inherit;
+}
+
 .list .title {
     font-size: 300%;
     padding: 0;
+}
+
+.list .content {
+    background-color: inherit;
+    color: #fff;
+}
+
+.list .content p {
+    color: #ffffff;
 }
 
 .list .content a,
@@ -331,11 +332,7 @@ div.content {
 
 .list .more-link {
     background-color: #921b11;
-    padding-right: 10px;
-}
-
-.list .box-container {
-    border-bottom: inherit;
+    text-align: center;
 }
 
 /* F I N E  L I S T */
@@ -393,6 +390,10 @@ div.content {
 
 .group .main-container {
     width: 75%;
+}
+
+.home .content-container {
+    padding: 10px;
 }
 
 .group-container .content p:first-letter, .group-container .content:first-letter {
@@ -459,9 +460,6 @@ div.content {
 }
 
 .minor .box-container {
-    background-color: inherit;
-    overflow: inherit;
-    min-height: inherit;
     border-bottom: inherit;
 }
 
@@ -478,7 +476,11 @@ div.content {
     overflow: auto;
 }
 
-.member .content img {
+.member .box-container {
+    background-color: inherit;
+}
+
+.member .content-container img {
     width: 50%;
     height: auto;
 }
@@ -525,7 +527,6 @@ div.content {
     align-items: inherit;
     padding: 10px 0;
     display: inherit;
-    min-height: inherit;
 }
 
 .other-posts-container .title-date {
@@ -534,7 +535,7 @@ div.content {
 
 .other-posts-container .content {
     padding: 14px;
-    min-height: 200px;
+    min-height: inherit;
 }
 
 .other-posts-container .content-container, .other-posts-container .content-container .content, .other-posts-container .title-date {
@@ -1138,14 +1139,6 @@ h2, h4 {
     padding: 0;
 }
 
-.content {
-    padding: 15px;
-}
-
-.content p {
-    min-height: 100px;
-}
-
 .content p:first-letter, .content:first-letter {
     color: #950103;
     font-size: 250%;
@@ -1153,26 +1146,28 @@ h2, h4 {
 }
 
 .more-link {
-    padding: 10px;
     text-align: right;
     text-transform: uppercase;
     text-decoration: none;
     font-family: BebasNeue;
     font-size: 140%;
+    padding: 5px 10px;
 }
 
 .box-container {
     border-bottom: 5px solid #950103;
     margin-bottom: 30px;
+    background-color: #ffffff;
 }
 
 .title-container {
     font-family: BebasNeue;
-    background-color: inherit;
 }
 
 .content-container {
+    padding: 15px;
     background-color: #ffffff;
+    overflow: auto;
 }
 
 /* F I N E  G E N E R A L */

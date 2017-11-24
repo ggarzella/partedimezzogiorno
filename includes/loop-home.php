@@ -26,8 +26,8 @@
                 <div class="content">
                     <?php the_excerpt(80); ?>
                 </div>
-                <div class="more-link"><a href="<?php echo get_permalink(); ?>">Leggi tutto</a></div>
             </div>
+            <div class="more-link"><a href="<?php echo get_permalink(); ?>">Leggi tutto</a></div>
         </div>
 
     <?php /*endwhile; ?>

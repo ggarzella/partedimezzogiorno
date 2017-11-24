@@ -31,15 +31,9 @@ $group = $post->post_title;
                 <span class="subtitle"><?php echo $group;  ?></span>
             </h2>
             <div class="content-container">
+                <img class="center-block img-responsive" src="<?php echo $image_src; ?>">
                 <div class="content">
-                    <br/>
-                    <br/>
-                    <img class="center-block img-responsive" src="<?php echo $image_src; ?>">
-                    <br/>
-                    <br/>
                     <p><?php echo $description; ?></p>
-                    <br/>
-                    <br/>
                 </div>
             </div>
         </div>
