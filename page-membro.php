@@ -21,8 +21,7 @@ $group = $post->post_title;
 
 <?php if ($role): ?>
 
-<div class="main-content generic">
-    <div class="main-container">
+    <div class="main-container generic">
         <div class="box-container">
             <h2 class="title-container">
                 <span class="title title-role"><?php echo $role?></span>
@@ -31,19 +30,20 @@ $group = $post->post_title;
                 <br/>
                 <span class="subtitle"><?php echo $group;  ?></span>
             </h2>
-            <div class="content">
-                <br/>
-                <br/>
-                <img class="center-block img-responsive" src="<?php echo $image_src; ?>">
-                <br/>
-                <br/>
-                <p><?php echo $description; ?></p>
-                <br/>
-                <br/>
+            <div class="content-container">
+                <div class="content">
+                    <br/>
+                    <br/>
+                    <img class="center-block img-responsive" src="<?php echo $image_src; ?>">
+                    <br/>
+                    <br/>
+                    <p><?php echo $description; ?></p>
+                    <br/>
+                    <br/>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <?php endif; ?>
 

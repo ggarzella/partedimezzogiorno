@@ -4,7 +4,7 @@
 
 <?php if (have_posts()): ?>
 
-    <div class="main-content generic">
+    <div class="main-container generic">
 
         <?php
 
@@ -21,24 +21,23 @@
 
             ?>
 
-            <div class="main-container">
-
-                <div class="main row">
-                    <div class="col-md-4">
-                        <div class="title-container">
-                            <h2 class="title"><?php mezzogiorno_get_the_title(); ?></h2>
-                            <div class="subtitle">Composizione del Comando di Mezzogiorno per l'edizione 2017</div>
-                        </div>
+            <div class="main row">
+                <div class="col-md-4">
+                    <div class="title-container">
+                        <h2 class="title"><?php mezzogiorno_get_the_title(); ?></h2>
+                        <div class="subtitle">Composizione del Comando di Mezzogiorno per l'edizione 2017</div>
                     </div>
-                    <?php
-                        if (get_post_meta(get_the_ID(), "role".$index, true)):
-                    ?>
-                    <div class="col-md-8">
-                        <div class="box-container">
-                            <h4 class="title-container">
-                                <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
-                                <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
-                            </h4>
+                </div>
+                <?php
+                    if (get_post_meta(get_the_ID(), "role".$index, true)):
+                ?>
+                <div class="col-md-8">
+                    <div class="box-container">
+                        <h4 class="title-container">
+                            <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
+                            <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
+                        </h4>
+                        <div class="content-container">
                             <img class="img-responsive pull-left" src="<? echo $image_src; ?>"/>
                             <div class="content">
                                 <p><?php echo mezzogiorno_custom_excerpt(get_post_meta(get_the_ID(), "description".$index, true), 750); ?></p>
@@ -47,31 +46,33 @@
                             </div>
                         </div>
                     </div>
-                        <?php endif; ?>
                 </div>
+                    <?php endif; ?>
+            </div>
 
-                <?php
+            <?php
 
-                $index++;
+            $index++;
 
-                $counter = 0;
+            $counter = 0;
 
-                while (get_post_meta(get_the_ID(), "role".$index, true)):
+            while (get_post_meta(get_the_ID(), "role".$index, true)):
 
-                    $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
+                $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
 
-                    $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
-                    $image_src = $image_src[0];
+                $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
+                $image_src = $image_src[0];
 
-                    if ($counter % 2 == 0)
-                        echo '<div class="row">';
-                ?>
-                    <div class="col-md-6">
-                        <div class="box-container equal-height">
-                            <h4 class="title-container">
-                                <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
-                                <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
-                            </h4>
+                if ($counter % 2 == 0)
+                    echo '<div class="row">';
+            ?>
+                <div class="col-md-6">
+                    <div class="box-container equal-height">
+                        <h4 class="title-container">
+                            <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
+                            <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
+                        </h4>
+                        <div class="content-container">
                             <img class="img-responsive pull-left" src="<? echo $image_src; ?>"/>
                             <div class="content">
                                 <p><?php echo mezzogiorno_custom_excerpt(get_post_meta(get_the_ID(), "description".$index, true), 400); ?></p>
@@ -79,26 +80,25 @@
                             <div class="more-link text-left"><a href="<?php echo get_permalink() . get_the_ID() . '/' . ($index + 1); ?>">Leggi tutto</a></div>
                         </div>
                     </div>
+                </div>
 
-                <?php
+            <?php
 
-                    $counter++;
+                $counter++;
 
-                    if ($counter % 2 == 0)
-                        echo '</div>';
-
-                    $index++;
-
-                endwhile;
-
-                if ($counter % 2 != 0)
+                if ($counter % 2 == 0)
                     echo '</div>';
 
-                ?>
+                $index++;
 
-                <?php get_template_part('includes/other', 'posts'); ?>
+            endwhile;
 
-            </div>
+            if ($counter % 2 != 0)
+                echo '</div>';
+
+            ?>
+
+            <?php get_template_part('includes/other', 'posts'); ?>
 
         <?php endwhile; ?>
 

@@ -103,7 +103,7 @@ Text Domain: mezzogiorno
     width: 75%;
 }
 
-.page .main-content, .single .main-content, .member .main-content, .news .main-content {
+.page .main-container, .single .main-container, .member .main-container, .news .main-container {
     width: 60%;
 }
 
@@ -127,7 +127,7 @@ body:not(.home):not(.courtesy) .logo {
 
 /* I N I Z I O  H O M E */
 
-.home .main-content {
+.home .main-container {
     width: 70%;
 }
 
@@ -135,18 +135,13 @@ body:not(.home):not(.courtesy) .logo {
     color: #fff;
 }
 
-.home .main-container, .news .main-container {
-    background-color: #fff;
-    margin-bottom: 40px
-}
-
-.home .main-container .title-container, .news .title-container {
+.home .box-container .title-container, .news .title-container {
     background-color: #9f191f;
     color: #fff;
     padding: 15px;
 }
 
-.home .main-container .title, .news .title {
+.home .box-container .title, .news .title {
     font-size: 180%;
     padding: 0;
 }
@@ -160,7 +155,7 @@ body:not(.home):not(.courtesy) .logo {
     padding: 15px;
 }
 
-.home .main-container .more-link > a, .home .main-container .more-link > a:focus, .home .main-container .more-link > a:hover {
+.home .box-container .more-link > a, .home .box-container .more-link > a:focus, .home .box-container .more-link > a:hover {
     color: #950103;
 }
 
@@ -193,7 +188,7 @@ body:not(.home):not(.courtesy) .logo {
     color: #950103;
 }
 
-.news .main-content {
+.news .main-container {
     width: 60%;
 }
 
@@ -270,12 +265,8 @@ body:not(.home):not(.courtesy) .logo {
     color: #ffffff;
 }
 
-.list .main-content {
+.list .main-container {
     width: 60%;
-}
-
-.page .main-container, .member .main-container, .single .main-container, .list .main-container, .group .main-container {
-    margin-bottom: 20px;
 }
 
 .page .title, .single .title, .member .title {
@@ -289,7 +280,6 @@ div.content {
 }
 
 .page div.content, .single div.content, .member div.content {
-    background-color: #fff;
     color: #000;
 }
 
@@ -339,13 +329,13 @@ div.content {
     color: #000;
 }
 
-.list .content {
-    background-color: inherit;
-}
-
 .list .more-link {
     background-color: #921b11;
     padding-right: 10px;
+}
+
+.list .box-container {
+    border-bottom: inherit;
 }
 
 /* F I N E  L I S T */
@@ -401,7 +391,7 @@ div.content {
 
 /* I N I Z I O  G R O U P */
 
-.group .main-content {
+.group .main-container {
     width: 75%;
 }
 
@@ -466,8 +456,6 @@ div.content {
 
 .group .box-container {
     margin-bottom: 30px;
-    background-color: #fff;
-    overflow: auto;
 }
 
 .minor .box-container {
@@ -483,7 +471,6 @@ div.content {
 
 .list .content-container {
     background-color: inherit;
-    overflow: inherit;
 }
 
 .member .more-link > a {
@@ -513,10 +500,7 @@ div.content {
     font-size: 280%;
     text-align: left;
     padding: 15px 0;
-}
-
-.group .other-posts {
-    padding-top: 60px;
+    color: #DC0103;
 }
 
 /* F I N E  G R O U P */
@@ -795,7 +779,7 @@ p.wp-caption-text:first-letter {
 
 /* I N I Z I O  C O U R T E S Y */
 
-.courtesy .main-content {
+.courtesy .main-container {
     display: table;
     position: absolute;
     height: 100%;
@@ -857,7 +841,7 @@ p.wp-caption-text:first-letter {
         width: auto;
     }
 
-    body.courtesy .main-content.generic {
+    body.courtesy .main-container.generic {
         width: 100%;
     }
 
@@ -879,7 +863,7 @@ p.wp-caption-text:first-letter {
         width: 70%;
     }
 
-    .main-content.generic {
+    .main-container.generic {
         width: 70%;
     }
 
@@ -991,7 +975,7 @@ p.wp-caption-text:first-letter {
 
     #teams-carousel h2 { font-size: 325%; }
 
-    .main-content.generic, #footer, .logo-container.generic, #mezzogiorno-navbar-header > div {
+    .main-container.generic, #footer, .logo-container.generic, #mezzogiorno-navbar-header > div {
         width: 85%;
     }
 
@@ -1030,7 +1014,7 @@ p.wp-caption-text:first-letter {
         font-size: 300%;
     }
 
-    .main-content.generic, #footer, .logo-container.generic {
+    .main-container.generic, #footer, .logo-container.generic {
         width: 92%;
     }
 
@@ -1122,25 +1106,21 @@ h2, h4 {
 
 }
 
-.main-content {
+.main-container {
     margin: 0 auto;
     padding-bottom: 100px;
 }
 
-.main-content h2 {
+.main-container h2 {
     text-transform: uppercase;
 }
 
-.main-content p {
+.main-container p {
     margin: 0;
 }
 
-.main-content #center {
+.main-container #center {
     padding-top: 100px;
-}
-
-.title-container {
-    font-family: BebasNeue;
 }
 
 .title {
@@ -1183,6 +1163,16 @@ h2, h4 {
 
 .box-container {
     border-bottom: 5px solid #950103;
+    margin-bottom: 30px;
+}
+
+.title-container {
+    font-family: BebasNeue;
+    background-color: inherit;
+}
+
+.content-container {
+    background-color: #ffffff;
 }
 
 /* F I N E  G E N E R A L */

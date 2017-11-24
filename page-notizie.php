@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="main-content generic">
+<div class="main-container generic">
 
     <div class="async-container category-notizie">
 

@@ -470,7 +470,9 @@ function mezzogiorno_is_page($name)
 
 function mezzogiorno_body_class($classes)
 {
-    mezzogiorno_remove_class('home', $classes);
+    //mezzogiorno_remove_class('home', $classes);
+
+    $classes = array();
 
     if (is_page_template('page-gruppo-civile.php') || is_page_template('page-comando.php'))
         $class = 'group';
@@ -482,7 +484,11 @@ function mezzogiorno_body_class($classes)
         $class = 'member';
     else if (mezzogiorno_is_page('notizie'))
         $class = 'news';
-    else if (!(is_page() && is_singular()) && is_home())
+    else if (is_page())
+        $class = 'page';
+    else if (is_singular())
+        $class = 'single';
+    else if (is_home())
         $class = 'home';
 
     $classes[] = $class;

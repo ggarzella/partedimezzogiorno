@@ -2,7 +2,7 @@
 
 <?php if (have_posts()): ?>
 
-    <div class="main-content generic">
+    <div class="main-container generic">
 
 <?php
 
@@ -10,19 +10,19 @@
 
         the_post();
 ?>
-        <div class="main-container">
 
-            <div class="box-container">
-                <h2 class="title-container">
-                    <span class="title"><?php mezzogiorno_get_the_title(); ?></span>
-                </h2>
+        <div class="box-container">
+            <h2 class="title-container">
+                <span class="title"><?php mezzogiorno_get_the_title(); ?></span>
+            </h2>
+            <div class="content-container">
                 <div class="content">
                     <?php the_content(); ?>
                 </div>
             </div>
-
-            <?php get_template_part('includes/other', 'posts'); ?>
         </div>
+
+        <?php get_template_part('includes/other', 'posts'); ?>
 
     <?php endwhile; ?>
 
