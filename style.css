@@ -131,22 +131,22 @@ body:not(.home):not(.courtesy) .logo {
     width: 70%;
 }
 
-.home .box-container .title > a, .home .box-container .title > a:hover, .home .box-container .title > a:focus {
+.home .main-container .title > a, .home .main-container .title > a:hover, .home .main-container .title > a:focus {
     color: #fff;
 }
 
-.home .box-container, .news .box-container {
+.home .main-container, .news .main-container {
     background-color: #fff;
     margin-bottom: 40px
 }
 
-.home .box-container .title-container, .news .title-container {
+.home .main-container .title-container, .news .title-container {
     background-color: #9f191f;
     color: #fff;
     padding: 15px;
 }
 
-.home .box-container .title, .news .title {
+.home .main-container .title, .news .title {
     font-size: 180%;
     padding: 0;
 }
@@ -156,11 +156,11 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0;
 }
 
-.home img, .member-container img {
+.home img, .group .box-container img {
     padding: 15px;
 }
 
-.home .box-container .more-link > a, .home .box-container .more-link > a:focus, .home .box-container .more-link > a:hover {
+.home .main-container .more-link > a, .home .main-container .more-link > a:focus, .home .main-container .more-link > a:hover {
     color: #950103;
 }
 
@@ -250,7 +250,7 @@ body:not(.home):not(.courtesy) .logo {
     min-height: 400px;
 }
 
-.member-container .content {
+.group .box-container .content {
     min-height: 250px;
 }
 
@@ -258,15 +258,7 @@ body:not(.home):not(.courtesy) .logo {
     padding: 15px;
 }
 
-.group .description img {
-    padding: 15px 15px 15px 0;
-}
-
-.group .description .content {
-    padding: 15px 0;
-}
-
-.member-container {
+.group .box-container {
     min-height: 200px;
 }
 
@@ -282,7 +274,7 @@ body:not(.home):not(.courtesy) .logo {
     width: 60%;
 }
 
-.page .box-container, .member .box-container, .single .box-container, .list .box-container, .group .box-container {
+.page .main-container, .member .main-container, .single .main-container, .list .main-container, .group .main-container {
     margin-bottom: 20px;
 }
 
@@ -292,7 +284,7 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 div.content {
-    padding: 12px 20px;
+    padding: 12px 20px 40px;
     background-color: inherit;
 }
 
@@ -454,16 +446,6 @@ div.content {
     text-align: center;
 }
 
-.group .description {
-    color: #FFFFFF;
-}
-
-.group .description p:first-letter {
-    color: #DC0103;
-    font-size: 250%;
-    font-family: BebasNeue;
-}
-
 .subtitle {
     color: white;
     text-align: right;
@@ -478,20 +460,21 @@ div.content {
     color: #fff;
 }
 
-.group > .box-container :not(.minor) .member-container {
+.group > .main-container :not(.minor) .box-container {
     border-bottom: 8px solid #950103;
 }
 
-.group .member-container {
+.group .box-container {
     margin-bottom: 30px;
     background-color: #fff;
     overflow: auto;
 }
 
-.minor .member-container {
+.minor .box-container {
     background-color: inherit;
     overflow: inherit;
     min-height: inherit;
+    border-bottom: inherit;
 }
 
 .group .main.row {
@@ -513,7 +496,7 @@ div.content {
     height: auto;
 }
 
-.member-container .title-container {
+.group .box-container .title-container {
     background-color: #950103;
     color: white;
     font-size: 160%;
@@ -521,7 +504,7 @@ div.content {
     padding: 15px;
 }
 
-.member-container .more-link > a {
+.group .box-container .more-link > a {
     color: #950103;
     overflow: auto;
 }
@@ -975,7 +958,7 @@ p.wp-caption-text:first-letter {
         font-size: 200%;
     }
 
-    .main-container { background-size: 50%; }
+    .body-container { background-size: 50%; }
 
     .logo-container { margin-top: -40px; }
 
@@ -1012,7 +995,7 @@ p.wp-caption-text:first-letter {
         width: 85%;
     }
 
-    .main-container { background-size: 50%; }
+    .body-container { background-size: 50%; }
 
     .logo-container { margin-top: -90px; }
 
@@ -1051,7 +1034,7 @@ p.wp-caption-text:first-letter {
         width: 92%;
     }
 
-    .main-container { background-size: 50%; }
+    .body-container { background-size: 50%; }
 
     .logo-container { margin-top: -65px; }
 
@@ -1129,7 +1112,7 @@ h2, h4 {
     padding-bottom: 45px;
 }
 
-.main-container {
+.body-container {
     width: 100%;
     height: auto;
     background-image: url("images/logo-bkg-mezzogiorno.png");
@@ -1196,6 +1179,10 @@ h2, h4 {
     text-decoration: none;
     font-family: BebasNeue;
     font-size: 140%;
+}
+
+.box-container {
+    border-bottom: 5px solid #950103;
 }
 
 /* F I N E  G E N E R A L */

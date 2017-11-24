@@ -16,7 +16,7 @@
 
             ?>
 
-            <div class="box-container">
+            <div class="main-container">
 
                 <div class="main row">
                     <div class="col-md-4 col-sm-12">
@@ -39,7 +39,7 @@
                         if (get_post_meta(get_the_ID(), "role".$index, true)):
                             ?>
                             <div class="col-md-4 col-sm-12 equal-height">
-                                <div class="member-container">
+                                <div class="box-container">
                                     <h4 class="title-container">
                                         <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
                                         <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
@@ -50,7 +50,7 @@
                                             <?php echo mezzogiorno_custom_excerpt(get_post_meta(get_the_ID(), "description".$index, true), 300); ?>
                                         </p>
                                     </div>
-                                    <div class="more-link text-left"><a href="<?php echo get_permalink() . 'membro/'. get_the_ID() . '/' . ($index + 1); ?>">Leggi tutto</a></div>
+                                    <div class="more-link text-left"><a href="<?php echo get_permalink() . get_the_ID() . '/' . ($index + 1); ?>">Leggi tutto</a></div>
                                 </div>
                             </div>
 
@@ -73,7 +73,7 @@
                         if ($counter % 3 == 0) echo '<div class="minor row">';
                         ?>
                         <div class="col-md-4">
-                            <div class="member-container">
+                            <div class="box-container">
                                 <h4 class="title-container">
                                     <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
                                 </h4>
@@ -95,9 +95,11 @@
 
                     ?>
 
-                    <div class="description">
-                        <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-left')); ?>
-                        <div class="content"><?php the_content(); ?></div>
+                    <div class="description box-container">
+                        <div class="content">
+                            <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-left')); ?>
+                            <div class="content"><?php the_content(); ?></div>
+                        </div>
                     </div>
 
                 <?php get_template_part('includes/other', 'posts'); ?>

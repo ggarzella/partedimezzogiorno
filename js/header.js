@@ -35,8 +35,8 @@ equalheight = function(container)
 
 $(document).ready(function()
 {
-	equalheight('.box-container .equal-height .title-container');
-	equalheight('.box-container .equal-height .content');
+	equalheight('.main-container .equal-height .title-container');
+	equalheight('.main-container .equal-height .content');
 
 	$('.dropdown-submenu a[href="#"]').on("click", function(e) {
 		$(this).next('ul').toggle();
@@ -47,6 +47,6 @@ $(document).ready(function()
 
 
 $(window).resize(function(){
-	equalheight('.box-container .equal-height .title-container');
-	equalheight('.box-container .equal-height .content');
+	equalheight('.main-container .equal-height .title-container');
+	equalheight('.main-container .equal-height .content');
 });

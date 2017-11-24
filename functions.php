@@ -377,7 +377,9 @@ function custom_rewrite_rule()
 {
     global $wp_rewrite;
 
-    add_rewrite_rule('([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z]+)/membro/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[3]&pagename=membro&groupid=$matches[4]&memberid=$matches[5]', 'top');
+    add_rewrite_rule('civile/([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
+
+    add_rewrite_rule('comando/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
 
     add_rewrite_rule('notizie/?', 'index.php?pagename=notizie', 'top');
     //add_rewrite_rule('([a-zA-Z]+/){3}membro/([0-9]+)/([0-9]+)/?', 'index.php?root=$matches[1]&pagename=membro&group_id=$matches[2]&member_id=$matches[3]', 'top');

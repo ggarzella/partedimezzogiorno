@@ -19,6 +19,6 @@
     <body <?php body_class(); ?>>
         <div class="container-fluid">
             <?php mezzogiorno_show_menu_header('header'); ?>
-            <div class="main-container">
+            <div class="body-container">
 
                 <?php get_template_part('includes/site', 'logo'); ?>

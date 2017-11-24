@@ -12,7 +12,7 @@
 
             ?>
 
-            <div class="box-container">
+            <div class="main-container">
 
                 <!--<h2 class="title-container">
                     <span class="title"><?php mezzogiorno_get_the_title(); ?></span>
