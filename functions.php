@@ -26,15 +26,6 @@ add_action('wp_enqueue_scripts', 'mezzogiorno_add_inclusions');
 
 
 
-function all_plugin_admin_init()
-{
-    //wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js');
-}
-add_action('admin_init', 'all_plugin_admin_init');
-
-
-
 function mezzogiorno_tinymce_settings($tinymce_init_settings) {
 
     $tinymce_init_settings['forced_root_block'] = false;
@@ -470,8 +461,6 @@ function mezzogiorno_is_page($name)
 
 function mezzogiorno_body_class($classes)
 {
-    //mezzogiorno_remove_class('home', $classes);
-
     $classes = array();
 
     if (is_page_template('page-gruppo-civile.php'))

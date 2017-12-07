@@ -127,6 +127,10 @@ body:not(.home):not(.courtesy) .logo {
 
 /* I N I Z I O  H O M E */
 
+#home-block-side {
+    padding-top: 12px;
+}
+
 .home .main-container {
     width: 70%;
 }
@@ -165,7 +169,11 @@ body:not(.home):not(.courtesy) .logo {
 
 .home .title-container {
     background-color: inherit;
-    padding: 35px 0 15px;
+    padding-bottom: 15px;
+}
+
+#home-block-center {
+    padding-top: 12px;
 }
 
 .home .title {
@@ -247,7 +255,6 @@ body:not(.home):not(.courtesy) .logo {
 .list .title-container {
     padding: 15px 0;
     color: #DC0103;
-    background-color: inherit;
 }
 
 .page .content, .single .content {
@@ -304,9 +311,15 @@ body:not(.home):not(.courtesy) .logo {
     width: 60%;
 }
 
+.list .title-container {
+    padding: 0;
+    color: #DC0103;
+}
+
 .list .box-container {
-    border-bottom: inherit;
-    background-color: inherit;
+    margin-bottom: 50px;
+    border-bottom: none;
+    background-color: transparent;
 }
 
 .list .title {
@@ -317,6 +330,7 @@ body:not(.home):not(.courtesy) .logo {
 .list .content {
     background-color: inherit;
     color: #fff;
+    min-height: 320px;
 }
 
 .list .content p {
@@ -358,6 +372,10 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0;
     font-weight: bold;
     padding: 0 0 10px 0;
+}
+
+.news-home .more-link {
+    padding: 0;
 }
 
 #form-block label {
@@ -680,15 +698,29 @@ body:not(.home):not(.courtesy) .logo {
     padding: 15px 0;
 }
 
-.social-container img, .footer-social img {
+.social-container img {
     height: 35px;
+    padding: 0 6px;
+    vertical-align: middle;
     display: inline;
-    padding: 0 7px;
+}
+
+.social-container {
+    padding: 14px;
 }
 
 .social-container p {
     text-align: center;
-    padding: 0 0 20px;
+}
+
+.social-container .title {
+    color: #DC0103;
+    font-size: 300%;
+    font-family: BebasNeue;
+    margin: 0;
+    font-weight: bold;
+    padding: 0;
+    text-align: left;
 }
 
 /* F I N E  F O O T E R */
@@ -804,12 +836,6 @@ p.wp-caption-text:first-letter {
     padding: 0;
 }
 
-.courtesy .logo-container > div {
-    padding: 0;
-    margin: 0 auto;
-    width: inherit;
-}
-
 .courtesy .logo {
     padding: 0;
 }
@@ -826,6 +852,20 @@ p.wp-caption-text:first-letter {
 #counter {
     font-size: 240%;
     color: #9d9d9d;
+}
+
+#credits {
+    color: #fff;
+    font-size: 110%;
+    padding: 0 15px 5px 0;
+    display: table-cell;
+    text-align: right;
+    vertical-align: bottom;
+    font-family: BebasNeue;
+}
+
+.credits-job {
+    color: #e82c2e;
 }
 
 /* F I N E  C O U R T E S Y */

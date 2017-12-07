@@ -30,7 +30,7 @@ if ($the_query->have_posts()): ?>
                 </div>
 
             <?php endwhile; ?>
-
+            <span class="separator30"></span>
             <div class="more-link">
                 <a href="<?php echo site_url('notizie'); ?>">Leggi altre notizie</a>
             </div>
