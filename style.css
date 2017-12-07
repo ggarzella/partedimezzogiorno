@@ -328,7 +328,6 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 .list .content {
-    background-color: inherit;
     color: #fff;
     min-height: 320px;
 }
@@ -379,7 +378,6 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 #form-block label {
-    font-weight: inherit;
     padding: 6px 0;
 }
 
@@ -394,10 +392,6 @@ body:not(.home):not(.courtesy) .logo {
 
 #form-block p {
     padding-bottom: 15px;
-}
-
-.form-control, .form-check-input, .btn  {
-    border-radius: inherit;
 }
 
 /* F I N E  F O R M */
