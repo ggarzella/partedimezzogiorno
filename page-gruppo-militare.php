@@ -1,4 +1,4 @@
-<?php /* Template Name: gruppo */ ?>
+<?php /* Template Name: magistratura */ ?>
 
 <?php get_header(); ?>
 
@@ -70,9 +70,9 @@
 
                 while (get_post_meta(get_the_ID(), "role".$index, true)):
 
-                    if ($counter % 3 == 0) echo '<div class="minor row">';
+                    if ($counter % 4 == 0) echo '<div class="minor row">';
                     ?>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="box-container">
                             <h4 class="title-container">
                                 <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
@@ -84,13 +84,13 @@
 
                     $counter++;
 
-                    if ($counter % 3 == 0) echo '</div>';
+                    if ($counter % 4 == 0) echo '</div>';
 
                     $index++;
 
                 endwhile;
 
-                if ($counter % 3 != 0)
+                if ($counter % 4 != 0)
                     echo '</div>';
 
                 ?>

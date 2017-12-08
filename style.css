@@ -128,7 +128,7 @@ body:not(.home):not(.courtesy) .logo {
 /* I N I Z I O  H O M E */
 
 #home-block-side {
-    padding-top: 12px;
+    padding-top: 20px;
 }
 
 .home .main-container {
@@ -170,10 +170,6 @@ body:not(.home):not(.courtesy) .logo {
 .home .title-container {
     background-color: inherit;
     padding-bottom: 15px;
-}
-
-#home-block-center {
-    padding-top: 12px;
 }
 
 .home .title {
@@ -426,6 +422,10 @@ body:not(.home):not(.courtesy) .logo {
 
 .group-container .title-container {
     color: #DC0103;
+}
+
+.group .description.box-container {
+    margin: 30px 0;
 }
 
 .title-role {

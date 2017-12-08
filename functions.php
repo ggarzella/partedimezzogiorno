@@ -370,6 +370,8 @@ function custom_rewrite_rule()
 
     add_rewrite_rule('civile/([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
 
+    add_rewrite_rule('militare/([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
+
     add_rewrite_rule('comando/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
 
     add_rewrite_rule('notizie/?', 'index.php?pagename=notizie', 'top');
@@ -463,7 +465,7 @@ function mezzogiorno_body_class($classes)
 {
     $classes = array();
 
-    if (is_page_template('page-gruppo-civile.php'))
+    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-gruppo-militare.php'))
         $class = 'group';
     else if (is_page_template('page-comando.php'))
         $class = 'group comando';

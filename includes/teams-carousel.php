@@ -4,7 +4,7 @@
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/santantonio'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/santantonio'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/santonio.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Pisa a pugnar invitta, a vincer nata - </span>
@@ -16,7 +16,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/san-martino'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-martino'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/smartino.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Pisa tremar fa l'acque e la terra - </span>
@@ -28,7 +28,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/san-marco'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-marco'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/smarco.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Forte Pisa alle prove - </span>
@@ -40,7 +40,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/leoni'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/leoni'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/leoni.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Virtus unita fortis - </span>
@@ -52,7 +52,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/dragoni'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/dragoni'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/dragoni.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Sum felix, velix - </span>
@@ -64,7 +64,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('parte-militare/magistrature/delfini'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/delfini'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/delfini.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Senza temer tempesta - </span>
