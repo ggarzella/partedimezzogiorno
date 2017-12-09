@@ -325,7 +325,6 @@ body:not(.home):not(.courtesy) .logo {
 
 .list .content {
     color: #fff;
-    min-height: 320px;
 }
 
 .list .content p {
@@ -340,8 +339,9 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 .list .more-link {
-    background-color: #921b11;
+    /*background-color: #921b11;*/
     text-align: center;
+    width: 150px;
 }
 
 /* F I N E  L I S T */

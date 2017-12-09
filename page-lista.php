@@ -12,9 +12,7 @@
 
             ?>
 
-                <!--<h2 class="title-container">
-                    <span class="title"><?php mezzogiorno_get_the_title(); ?></span>
-                </h2>-->
+                <div class="row">
 
                 <?php
 
@@ -26,11 +24,9 @@
 
                         $query->the_post();
 
-                        if ($counter % 3 == 0) echo '<div class="row">';
-
                         ?>
 
-                        <div class="col-md-4 equal-height">
+                        <div class="col-md-4 col-sm-6 col-xs-6 equal-height">
                             <div class="box-container">
                                 <div class="title-container">
                                     <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -38,28 +34,25 @@
                                 <div class="content-container">
                                     <div class="content">
                                         <?php the_post_thumbnail('thumbnail', array('class' => 'aligncenter img-responsive')); ?>
-                                        <br/>
-                                        <p><?php echo get_excerpt(150); ?></p>
                                     </div>
                                 </div>
-                                <div class="more-link text-left"><a href="<?php echo get_permalink(); ?>">Leggi tutto</a></div>
+                                <div class="more-link aligncenter"><a href="<?php echo get_permalink(); ?>">Vai alla pagina</a></div>
                             </div>
                         </div>
 
                         <?php
-
-                        $counter++;
-
-                        if ($counter % 3 == 0 || $counter == $query->post_count ) echo '</div>';
 
                     endwhile;
 
                     wp_reset_postdata();
                 ?>
 
+                </div>
+
                 <?php get_template_part('includes/other', 'posts'); ?>
 
             <?php endwhile; ?>
+
 
         </div>
 

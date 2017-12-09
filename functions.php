@@ -12,8 +12,8 @@ add_action( 'init', 'mezzogiorno_init' );*/
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(150, 150, array('center', 'top'));
 
-function mezzogiorno_add_inclusions() {
-
+function mezzogiorno_add_inclusions()
+{
     wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
     wp_enqueue_style( 'bootstrap-theme-css', get_template_directory_uri() . '/bootstrap/css/bootstrap-theme.min.css' );
     wp_enqueue_style( 'font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
@@ -26,8 +26,8 @@ add_action('wp_enqueue_scripts', 'mezzogiorno_add_inclusions');
 
 
 
-function mezzogiorno_tinymce_settings($tinymce_init_settings) {
-
+function mezzogiorno_tinymce_settings($tinymce_init_settings)
+{
     $tinymce_init_settings['forced_root_block'] = false;
     $tinymce_init_settings['wpautop'] = false;
     $tinymce_init_settings['force_br_newlines'] = true;
@@ -41,16 +41,16 @@ remove_filter('the_content', 'wpautop');
 
 
 
-function remove_admin_login_header() {
-
+function remove_admin_login_header()
+{
     remove_action('wp_head', '_admin_bar_bump_cb');
 }
 add_action('get_header', 'remove_admin_login_header');
 
 
 
-function mezzogiorno_register_menu() {
-
+function mezzogiorno_register_menu()
+{
     register_nav_menu('header', __( 'Mezzogiorno Header Menu' ));
     register_nav_menu('footer', __( 'Mezzogiorno Footer Menu' ));
 }
@@ -58,8 +58,8 @@ add_action( 'after_setup_theme', 'mezzogiorno_register_menu' );
 
 
 
-function mezzogiorno_excerpt_length($length) {
-
+function mezzogiorno_excerpt_length($length)
+{
     return $length;
 }
 add_filter('excerpt_length', 'mezzogiorno_excerpt_length', 999);
@@ -73,16 +73,16 @@ add_filter( 'the_content_more_link', 'mezzogiorno_modify_read_more_link' );*/
 
 
 
-function mezzogiorno_modify_excerpt_more($more) {
-
+function mezzogiorno_modify_excerpt_more($more)
+{
     return '...';
 }
 add_filter('excerpt_more', 'mezzogiorno_modify_excerpt_more');
 
 
 
-function mezzogiorno_show_menu_header($themeName) {
-
+function mezzogiorno_show_menu_header($themeName)
+{
     wp_nav_menu(
         array(
             'theme_location' => $themeName,
@@ -107,8 +107,8 @@ function mezzogiorno_show_menu_header($themeName) {
 
 
 
-class Mezzogiorno_Nav_Walker extends Walker_Nav_Menu {
-
+class Mezzogiorno_Nav_Walker extends Walker_Nav_Menu
+{
     public function start_lvl(&$output, $depth = 0, $args = array())
     {
         $indent = str_repeat( "\t", $depth );
@@ -216,16 +216,16 @@ class Mezzogiorno_Nav_Walker extends Walker_Nav_Menu {
 
 
 
-function mezzogiorno_the_post_date($postID) {
-
+function mezzogiorno_the_post_date($postID)
+{
     $post_meta_date = get_post_meta($postID, "meta-box-date", true);
     return date_i18n('d M Y', strtotime($post_meta_date));
 }
 
 
 
-function mezzogiorno_image_class_filter($class, $id, $align, $size) {
-
+function mezzogiorno_image_class_filter($class, $id, $align, $size)
+{
     return 'center-block img-responsive';
 }
 add_filter('get_image_tag_class', 'mezzogiorno_image_class_filter', 0, 4);
@@ -251,8 +251,8 @@ add_shortcode('caption', 'fb_img_caption_shortcode');*/
 
 
 
-function remove_caption_padding( $width ) {
-
+function remove_caption_padding( $width )
+{
     return $width - 10;
 }
 add_filter( 'img_caption_shortcode_width', 'remove_caption_padding' );
@@ -310,8 +310,8 @@ function mezzogiorno_get_related_posts($postID, $categoryID, $max = 3) {
 
 
 
-function get_excerpt($length) {
-
+function get_excerpt($length)
+{
     $excerpt = get_the_content();
     $excerpt = strip_shortcodes($excerpt);
     $excerpt = strip_tags($excerpt);
@@ -322,8 +322,8 @@ function get_excerpt($length) {
 
 
 
-function get_custom_image($id, $meta_name = null) {
-
+function get_custom_image($id, $meta_name = null)
+{
     if (!$meta_name)
         $meta_name = "meta-box-image";
 
@@ -335,30 +335,16 @@ function get_custom_image($id, $meta_name = null) {
 
 
 
-function mezzogiorno_get_the_title() {
-
+function mezzogiorno_get_the_title()
+{
     $title = is_user_logged_in() ? '<a href="' . get_edit_post_link(get_the_ID()) . '">' . get_the_title() . '</a>' : the_title();
     echo $title;
 }
 
 
 
-// [membro ruolo="generale" immagine="path"]
-function member_func( $atts ) {
-
-    $a = shortcode_atts( array(
-        'ruolo' => 'something',
-        'immagine' => 'something else',
-    ), $atts );
-
-    return "foo = {$a['foo']}";
-}
-add_shortcode( 'bartag', 'bartag_func' );
-
-
-
-function mezzogiorno_custom_excerpt($string, $length_in_words) {
-
+function mezzogiorno_custom_excerpt($string, $length_in_words)
+{
     return preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length_in_words)) . '...';
 }
 
@@ -489,3 +475,14 @@ function mezzogiorno_body_class($classes)
     return $classes;
 }
 add_filter('body_class', 'mezzogiorno_body_class');
+
+
+
+function mezzogiorno_get_template_slug($template)
+{
+    $templates = get_page_templates();
+
+    foreach ($templates as $template_name => $template_filename)
+        if ($template_filename == $template)
+            return $template_name;
+}
