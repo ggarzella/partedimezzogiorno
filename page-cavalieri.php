@@ -1,4 +1,4 @@
-<?php /* Template Name: gruppo */ ?>
+<?php /* Template Name: cavalieri */ ?>
 
 <?php get_header(); ?>
 
@@ -22,13 +22,13 @@
                         <h2 class="title">
                             <?php mezzogiorno_get_the_title(); ?>
                         </h2>
-                        <div class="subtitle">Composizione del gruppo <br/><?php the_title(); ?>&nbsp;<?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
+                        <div class="subtitle">Composizione delle GCSC 2017<!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>
                 <?php
 
-                for ($index=0; $index<2; $index++):
+                for ($index=0; $index<1; $index++):
                     $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
 
                     $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
@@ -36,7 +36,7 @@
 
                     if (get_post_meta(get_the_ID(), "role".$index, true)):
                         ?>
-                        <div class="col-md-4 col-sm-12 equal-height">
+                        <div class="col-md-offset-8 col-md-4 col-sm-12 col-xs-12">
                             <div class="box-container">
                                 <h4 class="title-container">
                                     <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;

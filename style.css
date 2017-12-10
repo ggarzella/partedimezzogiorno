@@ -341,7 +341,6 @@ body:not(.home):not(.courtesy) .logo {
 .list .more-link {
     /*background-color: #921b11;*/
     text-align: center;
-    width: 150px;
 }
 
 /* F I N E  L I S T */
@@ -515,6 +514,10 @@ body:not(.home):not(.courtesy) .logo {
     text-align: left;
     padding: 15px 0;
     color: #DC0103;
+}
+
+.group .description.box-container img {
+    margin: 0 10px 10px 0;
 }
 
 /* F I N E  G R O U P */

@@ -34,9 +34,10 @@
                                 <div class="content-container">
                                     <div class="content">
                                         <?php the_post_thumbnail('thumbnail', array('class' => 'aligncenter img-responsive')); ?>
+                                        <p class="hidden-xs"><?php echo get_excerpt(150); ?></p>
                                     </div>
                                 </div>
-                                <div class="more-link aligncenter"><a href="<?php echo get_permalink(); ?>">Vai alla pagina</a></div>
+                                <div class="more-link text-left"><a href="<?php echo get_permalink(); ?>">Leggi tutto</a></div>
                             </div>
                         </div>
 
@@ -52,6 +53,7 @@
                 <?php get_template_part('includes/other', 'posts'); ?>
 
             <?php endwhile; ?>
+
 
         </div>
 
