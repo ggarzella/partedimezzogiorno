@@ -22,7 +22,7 @@
                         <h2 class="title">
                             <?php mezzogiorno_get_the_title(); ?>
                         </h2>
-                        <div class="subtitle">Composizione del gruppo <br/><?php the_title(); ?>&nbsp;<?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
+                        <div class="subtitle">Composizione magistratura <?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>

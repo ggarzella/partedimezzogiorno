@@ -1,4 +1,4 @@
-<?php /* Template Name: cavalieri */ ?>
+<?php /* Template Name: gruppo-2 */ ?>
 
 <?php get_header(); ?>
 
@@ -22,7 +22,7 @@
                         <h2 class="title">
                             <?php mezzogiorno_get_the_title(); ?>
                         </h2>
-                        <div class="subtitle">Composizione delle GCSC 2017<!--Qui ci va un subtitle--></div>
+                        <div class="subtitle">Composizione gruppo <?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 
                     if (get_post_meta(get_the_ID(), "role".$index, true)):
                         ?>
-                        <div class="col-md-offset-8 col-md-4 col-sm-12 col-xs-12">
+                        <div class="col-md-4 col-sm-12 col-xs-12">
                             <div class="box-container">
                                 <h4 class="title-container">
                                     <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
@@ -62,16 +62,27 @@
 
             $counter = 0; ?>
 
-            <div class="title-container minor">
-                <h2 class="title">Le guardie</h2>
-            </div>
-
                 <?php
 
                 while (get_post_meta(get_the_ID(), "role".$index, true)):
 
                     if ($counter % 3 == 0) echo '<div class="minor row">';
-                    ?>
+                    // se $counter é uguale a due non incrementa $index e fa un bel continue
+
+                    if ($counter === 1):
+
+                ?>
+
+                    <div class="col-md-4">
+                        <div class="box-container">
+                        </div>
+                    </div>
+
+                <?php
+
+                    else:
+
+                ?>
                     <div class="col-md-4">
                         <div class="box-container">
                             <h4 class="title-container">
@@ -82,7 +93,11 @@
 
                     <?php
 
+                    endif;
+
                     $counter++;
+
+                    if ($counter === 1) continue;
 
                     if ($counter % 3 == 0) echo '</div>';
 

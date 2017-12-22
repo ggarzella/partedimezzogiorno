@@ -22,7 +22,7 @@
                         <h2 class="title">
                             <?php mezzogiorno_get_the_title(); ?>
                         </h2>
-                        <div class="subtitle">Composizione del gruppo <br/><?php the_title(); ?>&nbsp;<?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
+                        <div class="subtitle">Composizione gruppo <?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>
@@ -62,13 +62,28 @@
 
             $counter = 0; ?>
 
-            <div class="title-container minor">
+            <!--<div class="title-container minor">
                 <h2 class="title">Le guardie</h2>
-            </div>
+            </div>-->
 
                 <?php
 
-                while (get_post_meta(get_the_ID(), "role".$index, true)):
+                $current_role = "";
+
+                while ($role = get_post_meta(get_the_ID(), "role".$index, true)):
+
+                    if ($role !== $current_role):
+                        $current_role = $role;
+
+                    ?>
+
+                        <div class="title-container minor">
+                            <h2 class="title"><?=$current_role; ?></h2>
+                        </div>
+
+                    <?php
+
+                    endif;
 
                     if ($counter % 3 == 0) echo '<div class="minor row">';
                     ?>

@@ -12,8 +12,8 @@ add_action( 'init', 'mezzogiorno_init' );*/
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(150, 150, array('center', 'top'));
 
-function mezzogiorno_add_inclusions() {
-
+function mezzogiorno_add_inclusions()
+{
     wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
     wp_enqueue_style( 'bootstrap-theme-css', get_template_directory_uri() . '/bootstrap/css/bootstrap-theme.min.css' );
     wp_enqueue_style( 'font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
@@ -26,8 +26,8 @@ add_action('wp_enqueue_scripts', 'mezzogiorno_add_inclusions');
 
 
 
-function mezzogiorno_tinymce_settings($tinymce_init_settings) {
-
+function mezzogiorno_tinymce_settings($tinymce_init_settings)
+{
     $tinymce_init_settings['forced_root_block'] = false;
     $tinymce_init_settings['wpautop'] = false;
     $tinymce_init_settings['force_br_newlines'] = true;
@@ -465,7 +465,7 @@ function mezzogiorno_body_class($classes)
 {
     $classes = array();
 
-    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-gruppo-militare.php'))
+    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-gruppo-militare.php') || is_page_template('page-cavalieri.php'))
         $class = 'group';
     else if (is_page_template('page-comando.php'))
         $class = 'group comando';

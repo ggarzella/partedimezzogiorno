@@ -2,7 +2,7 @@
 
     <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Dec 22, 2017 08:00:00").getTime();
+    var countDownDate = new Date("Jan 1, 2018 13:00:00").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -38,8 +38,8 @@
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/logo-mezzogiorno.png">
                 </div>
                 <div id="intestazione">PARTE DI MEZZOGIORNO</div>
-                <div id="sotto-intestazione">Presto online</div>
-                <!--<div id="counter"></div>-->
+                <div id="sotto-intestazione"><span id="publication-date">1 Gennaio 2018</span>&nbsp;Online</div>
+                <div id="counter"></div>
             </div>
         </div>
         <div style="display: table-row">

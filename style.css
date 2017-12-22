@@ -847,14 +847,18 @@ p.wp-caption-text:first-letter {
 }
 
 #counter {
-    font-size: 240%;
+    font-size: 150%;
     color: #9d9d9d;
+}
+
+#publication-date {
+    color: #DC0103;
 }
 
 #credits {
     color: #fff;
     font-size: 110%;
-    padding: 0 15px 5px 0;
+    padding: 15px 15px 5px 0;
     display: table-cell;
     text-align: right;
     vertical-align: bottom;
@@ -947,6 +951,12 @@ p.wp-caption-text:first-letter {
     .nav.footer-menu > li > a {
         line-height: 30px;
     }
+
+    #intestazione {
+        font-size: 300%;
+    }
+
+
 }
 
 @media (max-width: 320px) {
