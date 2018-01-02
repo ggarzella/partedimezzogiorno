@@ -11,7 +11,6 @@ Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, 
 Text Domain: mezzogiorno
 */
 
-
 /* I N I Z I O  N A V  M E N U */
 
 #mezzogiorno-navbar-header {
@@ -75,6 +74,7 @@ Text Domain: mezzogiorno
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
     background-color: black;
+	background-image: none;
 }
 
 .dropdown-submenu .dropdown-menu {
@@ -91,7 +91,7 @@ Text Domain: mezzogiorno
     margin: 0 auto;
 }
 
-.home .logo-container {
+/*.home .logo-container {
     width: 70%;
 }
 
@@ -101,6 +101,13 @@ Text Domain: mezzogiorno
 
 .group .logo-container {
     width: 75%;
+}*/
+.logo-container {
+    width: 70%;
+}
+
+.list .app .content {
+    height: 150px;
 }
 
 .page .main-container, .single .main-container, .member .main-container, .news .main-container {
@@ -186,6 +193,15 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0 10px 5px 0;
 }
 
+.home .box-container img {
+	box-shadow: 6px 6px LightGray;
+	margin-right: 15px;
+}
+
+.comando.group .minor.row .content-container {
+    height: 250px;
+}
+
 /* F I N E  H O M E */
 
 
@@ -253,6 +269,15 @@ body:not(.home):not(.courtesy) .logo {
     color: #DC0103;
 }
 
+.page .title-container,
+.member .title-container {
+	padding-left: 32px;
+	background-image: url("images/logo-bkg-mezzogiorno.png");
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-size: 10%;
+}
+
 .page .content, .single .content {
     min-height: 400px;
 }
@@ -289,8 +314,9 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 .page .title-date-container, .single .title-date-container {
-    color: #DC0103;
+    color: #921b11;
     padding: 0 0 15px;
+	margin-top: -15px;
 }
 
 .page .title-date, .single .title-date {
@@ -372,6 +398,10 @@ body:not(.home):not(.courtesy) .logo {
     padding: 0;
 }
 
+.news-home a, .news-home a:focus, .news-home a:visited, .news-home a:hover {
+    color: #fff;
+}
+
 #form-block label {
     padding: 6px 0;
 }
@@ -415,6 +445,18 @@ body:not(.home):not(.courtesy) .logo {
     display: none;
 }
 
+.group .title {
+    color: #ffffff;
+}
+
+.group .main .title span {
+    color: #DC0103;
+}
+
+.group .main .title span a {
+    color: #DC0103;
+}
+
 .group .content-container .more-link {
     padding-left: 0;
 }
@@ -425,6 +467,13 @@ body:not(.home):not(.courtesy) .logo {
 
 .group .description.box-container {
     margin: 30px 0;
+}
+
+.group .description.box-container .content-container {
+	background-image: url("images/logo-bkg-mezzogiorno.png");
+	background-position: top right;
+	background-repeat: repeat-y;
+	background-size: 10%;
 }
 
 .title-role {
@@ -510,10 +559,26 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 .group .title-container.minor h2.title {
-    font-size: 280%;
+    font-size: 240%;
+    text-align: left; /* giova!!! */
+    padding: 5px 0;
+    color: #e82c2e;
+}
+
+.comando.group .title-container.minor h2.title {
     text-align: left;
-    padding: 15px 0;
-    color: #DC0103;
+}
+
+.group .minor.row .content-container {
+    height: 370px
+}
+
+.comando.group .minor.row .content-container {
+    height: 250px;
+}
+
+.group .minor .title-container {
+    text-align: left;
 }
 
 .group .description.box-container img {
@@ -614,6 +679,10 @@ body:not(.home):not(.courtesy) .logo {
     line-height: 58px;
 }
 
+.footer-container a, .footer-container a:focus, .footer-container a:visited, .footer-container a:hover {
+    color: #fff;
+}
+
 #yy, #mm, #dd {
     width: 2em;
     padding: 1px;
@@ -623,6 +692,11 @@ body:not(.home):not(.courtesy) .logo {
 #teams-carousel {
     background-color: #9f191f;
     font-family: EnchantedLand;
+}
+
+#teams-carousel a, #teams-carousel a:visited, #teams-carousel a:hover, #teams-carousel a:focus {
+    text-decoration: none;
+    color: #fff;
 }
 
 #teams-carousel h2 {
@@ -674,6 +748,18 @@ body:not(.home):not(.courtesy) .logo {
     margin: 0 auto;
 }
 
+.menu-footer-container ul#menu-footer {
+	padding: 0;
+	margin: 0;
+}
+
+.menu-footer-container ul#menu-footer li {
+	list-style-type: none;
+	font-family: BebasNeue;
+	font-size: 120%;
+	padding: 8px 0;
+}
+
 .footer-social a, .footer-social a:hover {
     font-family: BebasNeue;
     color: #fff;
@@ -695,27 +781,34 @@ body:not(.home):not(.courtesy) .logo {
     padding: 15px 0;
 }
 
+.social-container {
+	padding: 0;
+	margin: 0;
+	text-align: right;
+}
+
 .social-container img {
     height: 35px;
     padding: 0 6px;
     vertical-align: middle;
     display: inline;
+	cursor: pointer;
 }
 
-.social-container {
-    padding: 14px;
-}
-
-.social-container p {
-    text-align: center;
-}
-
-.social-container .title {
-    color: #DC0103;
-    font-size: 300%;
+.social-container .social-title {
+    color: #fff;
+    font-size: 180%;
     font-family: BebasNeue;
     margin: 0;
-    font-weight: bold;
+    padding: 0;
+    text-align: right;
+}
+
+.social-container .social-link {
+    color: #fff;
+    font-size: 120%;
+    font-family: BebasNeue;
+    margin: 0;
     padding: 0;
     text-align: left;
 }
@@ -934,6 +1027,25 @@ p.wp-caption-text:first-letter {
     .courtesy .logo-container { margin-top: inherit; width: inherit; }
 }
 
+@media (max-width: 768px) {
+    #mezzogiorno-navbar-header .navbar-collapse .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+        margin: 0 auto;
+    }
+
+    #mezzogiorno-navbar-header .navbar-collapse {
+        text-align: center;
+    }
+}
+
+@media (max-width: 493px) {
+    .social-text {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
 
     #mezzogiorno-navbar-header > div {
@@ -1087,7 +1199,7 @@ body {
 }
 
 #gradient {
-    background-image: linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), url("images/background01.jpg");
+    /*background-image: linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), url("images/background01.jpg");*/
     background-repeat: repeat-x, no-repeat;
     background-position: bottom, 0 0;
     background: -moz-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)),   -webkit-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), -ms-linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0)), linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39, 39, 39, 0));
@@ -1112,8 +1224,7 @@ body {
 }
 
 a, a:visited, a:hover, a:focus {
-    text-decoration: none;
-    color: #fff;
+    color: #000;
 }
 
 h2, h4 {
@@ -1189,7 +1300,8 @@ h2, h4 {
 .content p:first-letter, .content:first-letter {
     color: #950103;
     font-size: 250%;
-    font-family: BebasNeue;
+    font-family: EnchantedLand;
+	line-height: 90%;
 }
 
 .more-link {

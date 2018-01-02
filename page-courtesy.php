@@ -2,7 +2,7 @@
 
     <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Jan 1, 2018 13:00:00").getTime();
+    var countDownDate = new Date("Jan 1, 2018 12:00:00").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -20,8 +20,26 @@
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("counter").innerHTML = days + " giorni " + hours + " ore "
-            + minutes + " minuti " + seconds + " secondi ";
+		if(days > 1 || days == 0)
+		{
+			var scrittaGiorno = 'giorni';
+		}
+		else var scrittaGiorno = 'giorno';
+		
+		if(hours > 1 || hours == 0)
+		{
+			var scrittaOre = 'ore';
+		}
+		else var scrittaOre = 'ora';
+		
+		if(minutes > 1 || minutes == 0)
+		{
+			var scrittaMinuti = 'minuti';
+		}
+		else var scrittaMinuti = 'minuto';
+		
+        document.getElementById("counter").innerHTML = days + " " + scrittaGiorno + " " + hours + " " + scrittaOre + " "
+            + minutes + " " + scrittaMinuti + " " + seconds + " secondi ";
 
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -46,6 +64,8 @@
             <div id="credits">
                 <div><span class="credits-name">Giovanni Battista Garzella</span>&nbsp;<span class="credits-job">Sviluppo</span></div>
                 <div><span class="credits-name">Francesca Deri</span>&nbsp;<span class="credits-job">Grafica</span></div>
+                <div><span class="credits-name">Alessio Falchi</span>&nbsp;<span class="credits-job">Grafica - supporto</span></div>
+                <div><span class="credits-name">Leonardo Miraglia - Chiara Mariotti</span>&nbsp;<span class="credits-job">Contenuti</span></div>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-martino'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/sanmartino'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/smartino.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Pisa tremar fa l'acque e la terra - </span>
@@ -28,7 +28,7 @@
 
         <div class="item">
             <div class="carousel-caption">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-marco'))); ?>">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/sanmarco'))); ?>">
                     <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/smarco.jpg"/>
                     <h2>
                         <span class="hidden-md hidden-sm hidden-xs">Forte Pisa alle prove - </span>

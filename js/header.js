@@ -1,42 +1,41 @@
-equalheight = function(container)
+equalheight = function(nameClass, nameContainer)
 {
-	var currentTallest = 0,
-		currentRowStart = 0,
-		rowDivs = new Array(),
-		$el,
-		top_position = 0;
+	var elements = $(nameClass, $(nameContainer));
 
-	$(container).each(function()
-	{
-		$el = $(this);
-		$($el).height('auto');
-		top_position = $el.position().top;
+	var currentRow = elements.closest(nameContainer).get(0), row, maxHeight = 0, currentHeight;
 
-		$row = $($el).parents('.row');
+	var counter = 0;
 
-		if (currentRowStart != top_position)
-		{
-			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++)
-				rowDivs[currentDiv].height(currentTallest);
+	elements.each(function() {
 
-			rowDivs.length = 0; // empty the array
-			currentRowStart = top_position;
-			currentTallest = $el.height();
-			rowDivs.push($el);
-		} else {
-			rowDivs.push($el);
-			currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+		row = $(this).closest(nameContainer);
+
+		elementForRow = $(row).find(nameClass).length;
+
+		currentHeight =  $(this).outerHeight(true);
+
+		if (currentHeight > maxHeight)
+			maxHeight = currentHeight;
+
+		if (counter === (elementForRow - 1)) {
+
+			$(nameClass, currentRow).outerHeight(maxHeight);
+
+			maxHeight = 0;
+
+			currentRow = row;
+
+			counter = 0;
 		}
 
-		for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++)
-			rowDivs[currentDiv].height(currentTallest);
+		counter++;
 	});
 };
 
 $(document).ready(function()
 {
-	equalheight('.main-container .equal-height .title-container');
-	equalheight('.main-container .equal-height .content');
+	equalheight('.content-container', '.other-posts');
+	equalheight('.title-container', '.other-posts');
 
 	$('.dropdown-submenu a[href="#"]').on("click", function(e) {
 		$(this).next('ul').toggle();
@@ -45,8 +44,7 @@ $(document).ready(function()
 	});
 });
 
-
-$(window).resize(function(){
-	equalheight('.main-container .equal-height .title-container');
-	equalheight('.main-container .equal-height .content');
+$(window).resize(function() {
+	equalheight('.content-container', '.other-posts');
+	equalheight('.title-container', '.other-posts');
 });

@@ -1,4 +1,4 @@
-<?php /* Template Name: gruppo */ ?>
+<?php /* Template Name: civile-gruppoarmato */ ?>
 
 <?php get_header(); ?>
 
@@ -10,7 +10,11 @@
 
         while (have_posts()):
 
+            global $post;
+
             the_post();
+
+            $group = mezzogiorno_get_group_by_conf($post->post_name);
 
             $index = 0;
 
@@ -20,9 +24,8 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="title-container">
                         <h2 class="title">
-                            <?php mezzogiorno_get_the_title(); ?>
+                            <?php mezzogiorno_get_the_title(); ?><br/>Gioco del Ponte&nbsp;<?php echo date("Y"); ?>
                         </h2>
-                        <div class="subtitle">Composizione gruppo <?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>
@@ -69,12 +72,17 @@
                 <?php
 
                 $current_role = "";
+                $number = 0;
 
                 while ($role = get_post_meta(get_the_ID(), "role".$index, true)):
 
+                    $offset = "";
+                    $col_number = 4;
+
                     if ($role !== $current_role):
                         $current_role = $role;
-
+                        $number = $group[$role];
+                        $counter = 0;
                     ?>
 
                         <div class="title-container minor">
@@ -86,22 +94,26 @@
                     endif;
 
                     if ($counter % 3 == 0) echo '<div class="minor row">';
+
+                    if ($number === 2 && $counter === 0)
+                        $counter = 1;
+
                     ?>
-                    <div class="col-md-4">
-                        <div class="box-container">
-                            <h4 class="title-container">
-                                <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
-                            </h4>
+                        <div class="col-md-<?=$col_number; ?><?=$offset; ?>">
+                            <div class="box-container">
+                                <h4 class="title-container">
+                                    <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
 
                     <?php
 
-                    $counter++;
+                        $index++;
+
+                        $counter++;
 
                     if ($counter % 3 == 0) echo '</div>';
-
-                    $index++;
 
                 endwhile;
 

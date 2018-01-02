@@ -24,7 +24,7 @@
 
         ?>
 
-        <div class="<?=$cols;?> other-posts-container equal-height">
+        <div class="<?=$cols;?> other-posts-container">
             <div class="title-container">
                 <h2 class="title align-middle"><?php the_title(); ?></h2>
             </div>

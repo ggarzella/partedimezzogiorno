@@ -1,4 +1,4 @@
-<?php /* Template Name: civile-cavalieri */ ?>
+<?php /* Template Name: civile-paggi */ ?>
 
 <?php get_header(); ?>
 
@@ -10,7 +10,11 @@
 
         while (have_posts()):
 
+            global $post;
+
             the_post();
+
+            $group = mezzogiorno_get_group_by_conf($post->post_name);
 
             $index = 0;
 
@@ -27,7 +31,7 @@
                 </div>
                 <?php
 
-                for ($index=0; $index<1; $index++):
+                for ($index=0; $index<2; $index++):
                     $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
 
                     $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
@@ -35,7 +39,7 @@
 
                     if (get_post_meta(get_the_ID(), "role".$index, true)):
                         ?>
-                        <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="col-md-4 col-sm-12 equal-height">
                             <div class="box-container">
                                 <h4 class="title-container">
                                     <span class="title-role"><?php echo get_post_meta(get_the_ID(), "role".$index, true); ?></span>&nbsp;&nbsp;
@@ -61,60 +65,68 @@
 
             $counter = 0; ?>
 
-                <?php
+            <!--<div class="title-container minor">
+                <h2 class="title">Le guardie</h2>
+            </div>-->
 
-                while (get_post_meta(get_the_ID(), "role".$index, true)):
+            <?php
 
-                    if ($counter % 3 == 0) echo '<div class="minor row">';
-                    // se $counter é uguale a due non incrementa $index e fa un bel continue
+            $current_role = "";
+            $number = 0;
 
-                    if ($counter === 1):
+            while ($role = get_post_meta(get_the_ID(), "role".$index, true)):
 
-                ?>
+                $col_number = 4;
 
-                    <div class="col-md-4">
-                        <div class="box-container">
-                        </div>
-                    </div>
+                if ($role !== $current_role):
+                    $current_role = $role;
+                    $number = $group[$role];
+                    $counter = 0;
+                    ?>
 
-                <?php
-
-                    else:
-
-                ?>
-                    <div class="col-md-4">
-                        <div class="box-container">
-                            <h4 class="title-container">
-                                <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
-                            </h4>
-                        </div>
+                    <div class="title-container minor">
+                        <h2 class="title"><?=$current_role; ?></h2>
                     </div>
 
                     <?php
 
-                    endif;
+                endif;
 
-                    $counter++;
+                if ($counter % 3 == 0) echo '<div class="minor row">';
 
-                    if ($counter === 1) continue;
-
-                    if ($counter % 3 == 0) echo '</div>';
-
-                    $index++;
-
-                endwhile;
-
-                if ($counter % 3 != 0)
-                    echo '</div>';
+                if ($number === 2 && $counter === 0)
+                    $counter = 1;
 
                 ?>
-
-                <div class="description box-container">
-                    <div class="content-container">
-                        <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-left')); ?>
-                        <div class="content"><?php the_content(); ?></div>
+                <div class="col-md-<?=$col_number; ?>">
+                    <div class="box-container">
+                        <h4 class="title-container">
+                            <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
+                        </h4>
                     </div>
                 </div>
+
+                <?php
+
+                $index++;
+
+                $counter++;
+
+                if ($counter % 3 == 0) echo '</div>';
+
+            endwhile;
+
+            if ($counter % 3 != 0)
+                echo '</div>';
+
+            ?>
+
+            <div class="description box-container">
+                <div class="content-container">
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-left')); ?>
+                    <div class="content"><?php the_content(); ?></div>
+                </div>
+            </div>
 
             <?php get_template_part('includes/other', 'posts'); ?>
 
@@ -124,7 +136,7 @@
 
 <?php endif; ?>
 
-</div>
+    </div>
 
 <?php get_template_part('includes/teams', 'carousel'); ?>
 

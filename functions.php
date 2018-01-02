@@ -264,7 +264,9 @@ function mezzogiorno_get_child_pages($postID) {
     $args = array(
         'post_parent' => $postID,
         'post_type'   => 'page',
-        'posts_per_page'   => -1
+        'posts_per_page'   => -1,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
     );
 
     $children = new WP_Query($args);
@@ -368,15 +370,15 @@ function custom_rewrite_rule()
 {
     global $wp_rewrite;
 
-    add_rewrite_rule('civile/([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
+    add_rewrite_rule('civile/([a-zA-Z]+)/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
 
-    add_rewrite_rule('militare/([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
+    add_rewrite_rule('militare/([a-zA-Z]+)/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
+
+    add_rewrite_rule('giudici/([a-zA-Z]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
 
     add_rewrite_rule('comando/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
 
     add_rewrite_rule('notizie/?', 'index.php?pagename=notizie', 'top');
-    //add_rewrite_rule('([a-zA-Z]+/){3}membro/([0-9]+)/([0-9]+)/?', 'index.php?root=$matches[1]&pagename=membro&group_id=$matches[2]&member_id=$matches[3]', 'top');
-    //add_rewrite_rule('(([^/]*)/)*membro/([0-9]+)/([0-9]+)/?', 'index.php?root=$matches[1]&pagename=membro&group_id=$matches[2]&member_id=$matches[3]', 'top');
 
     add_rewrite_endpoint(get_query_var('pagename'), EP_PERMALINK | EP_PAGES);
 
@@ -420,7 +422,7 @@ add_action('template_redirect', 'prefix_url_rewrite_templates');*/
 
 function mezzogiorno_page_template($template)
 {
-    if (!is_user_logged_in())
+    /*if (!is_user_logged_in())
     {
         set_query_var('pagename', 'courtesy');
         $page = 'page-courtesy.php';
@@ -429,7 +431,10 @@ function mezzogiorno_page_template($template)
     {
         $pagename = get_query_var('pagename');
         $page = "page-$pagename.php";
-    }
+    }*/
+
+    $pagename = get_query_var('pagename');
+    $page = "page-$pagename.php";
 
     $new_template = locate_template(array($page)); //sennò get_template_directory() . "/$page";
 
@@ -465,7 +470,7 @@ function mezzogiorno_body_class($classes)
 {
     $classes = array();
 
-    if (is_page_template('page-gruppo-civile.php') || is_page_template('page-gruppo-militare.php') || is_page_template('page-cavalieri.php'))
+    if (is_page_template('page-gruppo-armato.php') || is_page_template('page-gruppo-militare.php') || is_page_template('page-cavalieri.php') || is_page_template('page-paggi.php') || is_page_template('page-specialisti.php'))
         $class = 'group';
     else if (is_page_template('page-comando.php'))
         $class = 'group comando';
@@ -499,4 +504,24 @@ function mezzogiorno_get_template_slug($template)
     foreach ($templates as $template_name => $template_filename)
         if ($template_filename == $template)
             return $template_name;
+}
+
+
+function mezzogiorno_get_group_by_conf($selectedGroup)
+{
+    $config = file_get_contents(get_template_directory_uri() . '/js/config.json');
+    $templates = json_decode($config, true);
+    foreach ($templates as $template)
+    {
+        foreach ($template as $name=>$group)
+        {
+            if (is_array($group))
+            {
+                if ($name === $selectedGroup)
+                    return $group;
+            }
+            else
+                return $template;
+        }
+    }
 }

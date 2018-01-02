@@ -4,20 +4,14 @@
 
 <?php get_template_part('includes/home', 'sidebar-teams'); ?>
 
-<?php get_template_part('includes/home', 'sidebar-social'); ?>
+<?php //get_template_part('includes/home', 'sidebar-social'); ?>
 
-    <span class="separator30"></span>
+    <!--<span class="separator30"></span>
 
-    <!--<h2 class="press-review">
-        <span>Rassegna stampa</span>
-    </h2>
-
-    <span class="separator30"></span>-->
-
-    <div class="press-review">
+    <!--<div class="press-review">
         <span>Rassegna stampa</span>
     </div>
 
-    <span class="separator45"></span>
+    <span class="separator45"></span>-->
 
-<?php get_template_part('includes/home', 'sidebar-form'); ?>
+<?php //get_template_part('includes/home', 'sidebar-form'); ?>

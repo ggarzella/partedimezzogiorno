@@ -1,4 +1,4 @@
-<?php /* Template Name: magistratura */ ?>
+<?php /* Template Name: militare */ ?>
 
 <?php get_header(); ?>
 
@@ -12,6 +12,8 @@
 
             the_post();
 
+            $group = mezzogiorno_get_group_by_conf("militare");
+
             $index = 0;
 
             ?>
@@ -20,9 +22,8 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="title-container">
                         <h2 class="title">
-                            <?php mezzogiorno_get_the_title(); ?>
+                            <?php mezzogiorno_get_the_title(); ?><br/>Gioco del Ponte&nbsp;<?php echo date("Y"); ?>
                         </h2>
-                        <div class="subtitle">Composizione magistratura <?php echo date("Y"); ?><!--Qui ci va un subtitle--></div>
                         <!--<div><?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive pull-right')); ?></div>-->
                     </div>
                 </div>
@@ -32,7 +33,7 @@
                     $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
 
                     $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
-                    $image_src = $image_src[0];
+                    $image_src = ($image_src[0] == "") ? get_template_directory_uri() . "/images/profile-150x150.jpg" : $image_src[0];
 
                     if (get_post_meta(get_the_ID(), "role".$index, true)):
                         ?>
@@ -68,25 +69,57 @@
 
                 <?php
 
-                while (get_post_meta(get_the_ID(), "role".$index, true)):
+                $current_role = "";
+                $number = 0;
 
-                    if ($counter % 4 == 0) echo '<div class="minor row">';
+                while ($role = get_post_meta(get_the_ID(), "role".$index, true)):
+
+                    $offset = "";
+                    $col_number = 3;
+
+                    if ($role !== $current_role):
+                        $current_role = $role;
+                        $number = $group[$role];
+                        $counter = 0;
+
                     ?>
-                    <div class="col-md-3">
-                        <div class="box-container">
-                            <h4 class="title-container">
-                                <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
-                            </h4>
+
+                        <div class="title-container minor">
+                            <h2 class="title"><?=$current_role; ?></h2>
                         </div>
-                    </div>
 
                     <?php
 
-                    $counter++;
+                    endif;
+
+                    if ($counter % 4 == 0) echo '<div class="minor row">';
+
+                    if ($number === 1 && $counter === 0) {
+                        $counter = 3;
+                        //$offset = " col-md-offset-4";
+                        $col_number = 4;
+                    }
+                    else if ($number === 2 && $counter === 0) {
+                        $counter = 2;
+                        //$offset = " col-md-offset-3";
+                    }
+
+                    ?>
+                        <div class="col-md-<?=$col_number; ?><?=$offset; ?>">
+                            <div class="box-container">
+                                <h4 class="title-container">
+                                    <span class="title-name"><?php echo (get_post_meta(get_the_ID(), "name".$index, true) . " " . get_post_meta(get_the_ID(), "lastname".$index, true)); ?></span>
+                                </h4>
+                            </div>
+                        </div>
+
+                    <?php
+
+                        $index++;
+
+                        $counter++;
 
                     if ($counter % 4 == 0) echo '</div>';
-
-                    $index++;
 
                 endwhile;
 

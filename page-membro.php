@@ -24,11 +24,9 @@ $group = $post->post_title;
     <div class="main-container generic">
         <div class="box-container">
             <h2 class="title-container">
-                <span class="title title-role"><?php echo $role?></span>
-                &nbsp;
-                <span class="title title-name"><?php echo $name?></span>
+                <span class="title title-role"><?php echo $role?>&nbsp;<?php echo $group;  ?></span>
                 <br/>
-                <span class="subtitle"><?php echo $group;  ?></span>
+                <span class="title title-name"><?php echo $name?></span>
             </h2>
             <div class="content-container">
                 <img class="center-block img-responsive" src="<?php echo $image_src; ?>">

@@ -6,12 +6,12 @@
             </a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-martino'))); ?>">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/sanmartino'))); ?>">
                 <img class="img-responsive" src="<?=get_template_directory_uri() ?>/images/smartino.jpg"/>
             </a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/san-marco'))); ?>">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('militare/magistrature/sanmarco'))); ?>">
                 <img class="img-responsive center-block" src="<?=get_template_directory_uri() ?>/images/smarco.jpg"/>
             </a>
         </div>

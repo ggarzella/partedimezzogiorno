@@ -24,8 +24,10 @@
             <div class="main row">
                 <div class="col-md-4">
                     <div class="title-container">
-                        <h2 class="title"><?php mezzogiorno_get_the_title(); ?></h2>
-                        <div class="subtitle">Composizione del Comando di Mezzogiorno per l'edizione 2017</div>
+                        <h2 class="title">
+                            <?php mezzogiorno_get_the_title(); ?><br/>Gioco del Ponte&nbsp;<?php echo date("Y"); ?>
+                        </h2>
+                        <!--<div class="subtitle">Composizione del Comando di Mezzogiorno per l'edizione 2017</div>-->
                     </div>
                 </div>
                 <?php
@@ -61,10 +63,10 @@
                 $imageId = get_post_meta(get_the_ID(), "imageId".$index, true);
 
                 $image_src = wp_get_attachment_image_src($imageId, 'thumbnail');
-                $image_src = $image_src[0];
+                $image_src = ($image_src[0] == "") ? get_template_directory_uri() . "/images/profile-150x150.jpg" : $image_src[0];
 
                 if ($counter % 2 == 0)
-                    echo '<div class="row">';
+                    echo '<div class="minor row">';
             ?>
                 <div class="col-md-6">
                     <div class="box-container equal-height">
