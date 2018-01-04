@@ -22,6 +22,20 @@ Text Domain: mezzogiorno
     display: none;
 }
 
+/* Francesca - Questo pezzo di codice é messo qui affinché sovrascriva la classe di Bootstrap navbar-nav che altrimenti fa flottare il menu a sinistra */
+@media (min-width: 768px) {
+    #mezzogiorno-navbar-header .navbar-collapse .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+		margin: 0 auto;
+    }
+
+    #mezzogiorno-navbar-header .navbar-collapse {
+        text-align: center;
+    }
+}
+
 #mezzogiorno-navbar-header > div  {
     margin: 0 auto;
     width: 70%;
@@ -275,7 +289,7 @@ body:not(.home):not(.courtesy) .logo {
 	background-image: url("images/logo-bkg-mezzogiorno.png");
 	background-position: center left;
 	background-repeat: no-repeat;
-	background-size: 10%;
+	background-size: contain;
 }
 
 .page .content, .single .content {
@@ -741,6 +755,7 @@ body:not(.home):not(.courtesy) .logo {
     background-color: #000;
     color: #fff;
     padding: 50px 0;
+	letter-spacing: 0.6px;
 }
 
 #footer {
@@ -796,7 +811,7 @@ body:not(.home):not(.courtesy) .logo {
 }
 
 .social-container .social-title {
-    color: #fff;
+    color: #DC0103;
     font-size: 180%;
     font-family: BebasNeue;
     margin: 0;
@@ -804,13 +819,17 @@ body:not(.home):not(.courtesy) .logo {
     text-align: right;
 }
 
-.social-container .social-link {
-    color: #fff;
+.social-container .social-link .social-text{
+    color: #DC0103;
     font-size: 120%;
     font-family: BebasNeue;
     margin: 0;
     padding: 0;
     text-align: left;
+}
+
+.social-container .social-link:hover{
+	text-decoration: none;
 }
 
 /* F I N E  F O O T E R */
@@ -1027,19 +1046,6 @@ p.wp-caption-text:first-letter {
     .courtesy .logo-container { margin-top: inherit; width: inherit; }
 }
 
-@media (max-width: 768px) {
-    #mezzogiorno-navbar-header .navbar-collapse .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-        margin: 0 auto;
-    }
-
-    #mezzogiorno-navbar-header .navbar-collapse {
-        text-align: center;
-    }
-}
-
 @media (max-width: 493px) {
     .social-text {
         display: none;
@@ -1068,7 +1074,23 @@ p.wp-caption-text:first-letter {
         font-size: 300%;
     }
 
+    .page .title, .group .title, .single .title, .member .title {
+        font-size: 200%;
+        padding: 0;
+    }
 
+    .container-fluid  .body-container { 
+		background-size: 80%;
+		background-position: bottom center;
+	}
+	
+	.navbar .navbar-nav .open .dropdown-menu > .active > a {
+		background-image: none;
+	}
+	
+	.group .description.box-container .content-container {
+		background-size: 20%;
+	}
 }
 
 @media (max-width: 320px) {
@@ -1102,11 +1124,22 @@ p.wp-caption-text:first-letter {
         font-size: 200%;
     }
 
-    .body-container { background-size: 50%; }
+    .container-fluid  .body-container { 
+		background-size: 100%;
+		background-position: bottom center;
+	}
 
     .logo-container { margin-top: -40px; }
 
     .courtesy .logo-container { margin-top: inherit; width: inherit; }
+	
+	.navbar .navbar-nav .open .dropdown-menu > .active > a {
+		background-image: none;
+	}
+	
+	.group .description.box-container .content-container {
+		background-size: 20%;
+	}
 }
 
 @media (min-width: 480px) and (max-width: 768px) {
@@ -1144,6 +1177,19 @@ p.wp-caption-text:first-letter {
     .logo-container { margin-top: -90px; }
 
     .courtesy .logo-container { width: inherit; margin-top: inherit; }
+	
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+		color: #FFFFFF;
+	}
+	
+	.container-fluid .body-container {
+		background-size: 80%;
+		background-position: bottom center;
+	}
+	
+	.group .description.box-container .content-container {
+		background-size: 20%;
+	}
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -1183,6 +1229,19 @@ p.wp-caption-text:first-letter {
     .logo-container { margin-top: -65px; }
 
     .courtesy .logo-container {  margin-top: inherit; width: inherit; }
+	
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+		color: #FFFFFF;
+	}
+	
+	.container-fluid .body-container {
+		background-size: 100%;
+		background-position: bottom center;
+	}
+	
+	.group .description.box-container .content-container {
+		background-size: 20%;
+	}
 }
 
 /* F I N E  M E D I A  Q U E R I E S */
