@@ -1,0 +1,11 @@
+{
+    "militare": {
+        "magistrato": 1,
+        "capitano": 1,
+        "tamburini": 2,
+        "alfiere": 1,
+        "paggio": 1,
+        "caposchiera": 1,
+        "combattenti": 20
+    }
+}

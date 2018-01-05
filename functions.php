@@ -370,6 +370,8 @@ function custom_rewrite_rule()
 {
     global $wp_rewrite;
 
+    add_rewrite_rule('gruppi/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
+
     add_rewrite_rule('civile/([a-zA-Z]+)/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
 
     add_rewrite_rule('militare/([a-zA-Z]+)/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[2]&pagename=membro&groupid=$matches[3]&memberid=$matches[4]', 'top');
@@ -379,8 +381,6 @@ function custom_rewrite_rule()
     add_rewrite_rule('comando/([a-zA-Z-]+)/([0-9]+)/([0-9]+)/?', 'index.php?groupname=$matches[1]&pagename=membro&groupid=$matches[2]&memberid=$matches[3]', 'top');
 
     add_rewrite_rule('notizie/?', 'index.php?pagename=notizie', 'top');
-
-    add_rewrite_endpoint(get_query_var('pagename'), EP_PERMALINK | EP_PAGES);
 
     $wp_rewrite->flush_rules();
 }
@@ -398,52 +398,26 @@ add_action('init', 'custom_rewrite_tag', 10, 0);
 
 
 
-/*function prefix_url_rewrite_templates() {
-
-    if (get_query_var('group_id') && get_query_var('member_id') && mezzogiorno_url_contain_param('membro')) {
-        add_filter( 'template_include', function() {
-            $page = 'page-membro.php';
-            $GLOBALS['current_page_template'] = $page;
-            return get_template_directory() . "/$page";
-        });
-    }
-
-    if (!is_user_logged_in()) {
-        add_filter( 'template_include', function() {
-            $page = 'page-courtesy.php';
-            $GLOBALS['current_page_template'] = $page;
-            return get_template_directory() . "/$page";
-        });
-    }
-}
-add_action('template_redirect', 'prefix_url_rewrite_templates');*/
-
-
-
-function mezzogiorno_page_template($template)
+function prefix_url_rewrite_templates()
 {
-    /*if (!is_user_logged_in())
-    {
-        set_query_var('pagename', 'courtesy');
-        $page = 'page-courtesy.php';
-    }
-    else
-    {
-        $pagename = get_query_var('pagename');
-        $page = "page-$pagename.php";
-    }*/
+    add_filter('template_include', function() {
 
-    $pagename = get_query_var('pagename');
-    $page = "page-$pagename.php";
+        if (!is_user_logged_in())
+        {
+            $page = 'single-courtesy.php';
+            return get_template_directory() . "/$page";
+        }
 
-    $new_template = locate_template(array($page)); //sennò get_template_directory() . "/$page";
+        if (get_query_var('groupid') && get_query_var('memberid') && (get_query_var('pagename') == 'membro'))
+            $page = 'single-membro.php';
 
-    if ('' != $new_template)
-        return $new_template;
+        $new_template = locate_template(array($page));
 
-    return $template;
+        if ('' != $new_template)
+            return $new_template;
+    });
 }
-add_filter('template_include', 'mezzogiorno_page_template', 99);
+add_action('template_redirect', 'prefix_url_rewrite_templates');
 
 
 
@@ -468,26 +442,44 @@ function mezzogiorno_is_page($name)
 
 function mezzogiorno_body_class($classes)
 {
-    $classes = array();
-
-    if (is_page_template('page-gruppo-armato.php') || is_page_template('page-gruppo-militare.php') || is_page_template('page-cavalieri.php') || is_page_template('page-paggi.php') || is_page_template('page-specialisti.php'))
+    if (!is_user_logged_in())
+        $class = 'courtesy';
+    else if (is_page_template('page-gruppo-armato.php') || is_page_template('page-gruppo-militare.php') || is_page_template('page-cavalieri.php') || is_page_template('page-paggi.php') || is_page_template('page-specialisti.php'))
         $class = 'group';
     else if (is_page_template('page-comando.php'))
         $class = 'group comando';
-    else if (is_page_template('page-lista.php')) /* implementare come membro e courtesy */
+    else if (is_page_template('page-lista.php'))
         $class = 'list';
-    else if (mezzogiorno_is_page('courtesy'))
-        $class = 'courtesy';
     else if (mezzogiorno_is_page('membro'))
         $class = 'member';
     else if (mezzogiorno_is_page('notizie'))
         $class = 'news';
     else if (is_page())
         $class = 'page';
-    else if (is_singular())
-        $class = 'single';
     else if (is_home())
         $class = 'home';
+    else if (in_array('single-gruppi', $classes))
+        $class = 'group';
+    else if (in_array('single-comando', $classes))
+        $class = 'group comando';
+    else if (is_page_template('page-lista.php'))
+        $class = 'list';
+    else if (mezzogiorno_is_page('courtesy'))
+        $class = 'courtesy';
+    else if (mezzogiorno_is_page('notizie'))
+        $class = 'news';
+    else if (mezzogiorno_is_page('membro'))
+        $class = 'member';
+    else if (is_page())
+        $class = 'page';
+    else if (is_singular())
+        $class = 'single';
+    else if (is_category())
+        $class = 'list';
+    else if (is_home())
+        $class = 'home';
+
+    $classes = array();
 
     $classes[] = $class;
 
@@ -525,3 +517,64 @@ function mezzogiorno_get_group_by_conf($selectedGroup)
         }
     }
 }
+
+
+
+function mezzogiorno_custom_post()
+{
+    // creazione (registrazione) del custom post type
+    register_post_type('gruppi', /* nome del custom post type */
+        // aggiungiamo ora tutte le impostazioni necessarie, in primis definiamo le varie etichette mostrate nei menù
+        array('labels' => array(
+            'name' => 'Gruppi', /* Nome, al plurale, dell'etichetta del post type. */
+            'singular_name' => 'Gruppo', /* Nome, al singolare, dell'etichetta del post type. */
+            'all_items' => 'Tutti i Gruppi', /* Testo mostrato nei menu che indica tutti i contenuti del post type */
+            'add_new' => 'Aggiungi nuovo', /* Il testo per il pulsante Aggiungi. */
+            'add_new_item' => 'Aggiungi nuovo gruppo', /* Testo per il pulsante Aggiungi nuovo post type */
+            'edit_item' => 'Modifica Gruppo', /*  Testo per modifica */
+            'new_item' => 'Nuovo Gruppo', /* Testo per nuovo oggetto */
+            'view_item' => 'Visualizza Gruppo', /* Testo per visualizzare */
+            'search_items' => 'Cerca Gruppo', /* Testo per la ricerca*/
+            'not_found' =>  'Nessun Gruppo trovato', /* Testo per risultato non trovato */
+            'not_found_in_trash' => 'Nessun Gruppo trovato nel cestino', /* Testo per risultato non trovato nel cestino */
+            'parent_item_colon' => ''
+        ), /* Fine dell'array delle etichette */
+            'description' => 'Gruppi del Militare e del Civile della Parte di Mezzogiorno', /* Una breve descrizione del post type */
+            'public' => true, /* Definisce se il post type sia visibile sia da front-end che da back-end */
+            'publicly_queryable' => true, /* Definisce se possono essere fatte query da front-end */
+            'exclude_from_search' => false, /* Definisce se questo post type è escluso dai risultati di ricerca */
+            'show_ui' => true, /* Definisce se deve essere visualizzata l'interfaccia di default nel pannello di amministrazione */
+            'query_var' => true,
+            'menu_position' => 8, /* Definisce l'ordine in cui comparire nel menù di amministrazione a sinistra */
+            'menu_icon' => get_stylesheet_directory_uri() . '/img/custom-post-icon.png', /* Scegli l'icona da usare nel menù per il posty type */
+            'rewrite'   => array( 'slug' => 'gruppi', 'with_front' => false ), /* Puoi specificare uno slug per gli URL */
+            'has_archive' => 'true', /* Definisci se abilitare la generazione di un archivio (equivalente di archive-libri.php) */
+            'capability_type' => 'post', /* Definisci se si comporterà come un post o come una pagina */
+            'hierarchical' => false, /* Definisci se potranno essere definiti elementi padri di altri */
+            /* la riga successiva definisce quali elementi verranno visualizzati nella schermata di creazione del post */
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
+            'taxonomies' => array('category')
+        ) /* fine delle opzioni */
+    ); /* fine della registrazione */
+
+}
+// Inizializzazione della funzione
+add_action( 'init', 'mezzogiorno_custom_post');
+
+
+
+function check_for_category_single_template($t)
+{
+    foreach((array) get_the_category() as $cat)
+    {
+        if (file_exists(TEMPLATEPATH . "/single-category-{$cat->slug}.php")) return TEMPLATEPATH . "/single-category-{$cat->slug}.php";
+
+        if($cat->parent)
+        {
+            $cat = get_the_category_by_ID($cat->parent);
+            if (file_exists(TEMPLATEPATH . "/single-category-{$cat->slug}.php")) return TEMPLATEPATH . "/single-category-{$cat->slug}.php";
+        }
+    }
+    return $t;
+}
+add_filter('single_template', 'check_for_category_single_template');

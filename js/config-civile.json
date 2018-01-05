@@ -1,0 +1,61 @@
+{
+    "gruppo-armato": {
+        "gcsc": {
+            "capitano": 1,
+            "ufficiale": 1,
+            "tamburini": 2,
+            "guardie": 33
+        },
+        "gccc": {
+            "capitano": 1,
+            "ufficiale": 1,
+            "tamburini": 2,
+            "guardie": 24
+        },
+        "alabardieri": {
+            "capitano": 1,
+            "ufficiale": 1,
+            "tamburini": 2,
+            "alabardieri": 6
+        },
+        "celatini": {
+            "comandante": 1,
+            "caposchiera": 1,
+            "tamburini": 2,
+            "celatini": 24
+        }
+    },
+    "paggi": {
+        "responsabile": 2,
+        "paggi del generale": 2,
+        "paggi del luogotenente": 3,
+        "paggi portafiamma": 6
+    },
+    "cavalieri": {
+        "cavalieri-generale": {
+            "responsabile": 1,
+            "cavalieri": 8
+        },
+        "cavalieri-luogotenente": {
+            "responsabile": 1,
+            "cavalieri": 8
+        }
+    },
+    "trombettieri": {
+        "responsabile": 1,
+        "trombettieri": 9
+    },
+    "picchietti di piazza": {
+        "responsabile": 1,
+        "picchetti": 10
+    },
+    "specialisti": {
+        "responsabile generale": 1,
+        "responsabile tamburini": 1,
+        "responsabile trombettieri": 1,
+        "responsabile alfieri": 1,
+        "tamburini": 20,
+        "trombettieri": 6,
+        "alfieri": 6
+    }
+}
