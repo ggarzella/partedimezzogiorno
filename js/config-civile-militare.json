@@ -1,0 +1,24 @@
+{
+    "dignitari": {
+        "generale": 1,
+        "luogotenente generale": 1,
+        "maggiore sergente": 1,
+        "nobili": 2,
+        "ambasciatore": 1,
+        "consigliere civile": 1,
+        "consigliere militare": 1,
+        "maestro di campo": 1
+    },
+    "comando": {
+        "generale": 1,
+        "luogotenente generale": 1,
+        "consigliere civile": 1,
+        "consigliere militare": 1,
+        "magistrato sant'antonio": 1,
+        "magistrato san martino": 1,
+        "magistrato san marco": 1,
+        "magistrato leoni": 1,
+        "magistrato dragoni": 1,
+        "magistrato delfini": 1
+    }
+}

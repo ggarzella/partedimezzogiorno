@@ -232,25 +232,6 @@ add_filter('get_image_tag_class', 'mezzogiorno_image_class_filter', 0, 4);
 
 
 
-/*function fb_img_caption_shortcode($attr, $content = null) {
-    $output = apply_filters('img_caption_shortcode', '', $attr, $content);
-    if ( $output != '' )
-        return $output;
-
-    extract(shortcode_atts(array(
-        'align'	=> 'alignnone',
-        'width'	=> ''
-    ), $attr));
-
-    var_dump($caption);
-
-    return '<div class="wp-caption ' . $align . '">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
-}
-add_shortcode('wp_caption', 'fb_img_caption_shortcode');
-add_shortcode('caption', 'fb_img_caption_shortcode');*/
-
-
-
 function remove_caption_padding( $width ) {
 
     return $width - 10;
@@ -345,20 +326,6 @@ function mezzogiorno_get_the_title() {
 
 
 
-// [membro ruolo="generale" immagine="path"]
-function member_func( $atts ) {
-
-    $a = shortcode_atts( array(
-        'ruolo' => 'something',
-        'immagine' => 'something else',
-    ), $atts );
-
-    return "foo = {$a['foo']}";
-}
-add_shortcode( 'bartag', 'bartag_func' );
-
-
-
 function mezzogiorno_custom_excerpt($string, $length_in_words) {
 
     return preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length_in_words)) . '...';
@@ -400,22 +367,23 @@ add_action('init', 'custom_rewrite_tag', 10, 0);
 
 function prefix_url_rewrite_templates()
 {
-    add_filter('template_include', function() {
+    if ((get_query_var('pagename') == 'membro') || !is_user_logged_in())
+    {
+        add_filter('template_include', function () {
 
-        if (!is_user_logged_in())
-        {
-            $page = 'single-courtesy.php';
-            return get_template_directory() . "/$page";
-        }
+            if (!is_user_logged_in()) {
+                $page = 'single-courtesy.php';
+                return get_template_directory() . "/$page";
+            }
 
-        if (get_query_var('groupid') && get_query_var('memberid') && (get_query_var('pagename') == 'membro'))
-            $page = 'single-membro.php';
+            $page = 'page-' . get_query_var('pagename') . '.php';
 
-        $new_template = locate_template(array($page));
+            $new_template = locate_template(array($page));
 
-        if ('' != $new_template)
-            return $new_template;
-    });
+            if ('' != $new_template)
+                return $new_template;
+        });
+    }
 }
 add_action('template_redirect', 'prefix_url_rewrite_templates');
 
@@ -460,7 +428,7 @@ function mezzogiorno_body_class($classes)
         $class = 'home';
     else if (in_array('single-gruppi', $classes))
         $class = 'group';
-    else if (in_array('single-comando', $classes))
+    else if (in_array('single-gruppi-comando', $classes))
         $class = 'group comando';
     else if (is_page_template('page-lista.php'))
         $class = 'list';
@@ -563,7 +531,7 @@ add_action( 'init', 'mezzogiorno_custom_post');
 
 
 
-function check_for_category_single_template($t)
+function check_for_category_single_template($template)
 {
     foreach((array) get_the_category() as $cat)
     {
@@ -575,6 +543,6 @@ function check_for_category_single_template($t)
             if (file_exists(TEMPLATEPATH . "/single-category-{$cat->slug}.php")) return TEMPLATEPATH . "/single-category-{$cat->slug}.php";
         }
     }
-    return $t;
+    return $template;
 }
 add_filter('single_template', 'check_for_category_single_template');
