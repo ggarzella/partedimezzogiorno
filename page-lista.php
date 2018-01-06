@@ -2,64 +2,63 @@
 
 <?php get_header(); ?>
 
-    <?php if (have_posts()): ?>
+<?php if (have_posts()): ?>
 
-        <div class="main-container generic">
+    <div class="main-container generic">
 
-            <?php while (have_posts()):
+        <?php while (have_posts()):
 
             the_post();
 
             ?>
 
+            <div class="row app">
+
                 <?php
 
-                    $counter = 0;
+                $counter = 0;
 
-                    $query = mezzogiorno_get_child_pages(get_the_ID());
+                $query = mezzogiorno_get_child_pages(get_the_ID());
 
-                    while ($query->have_posts()):
+                while ($query->have_posts()):
 
-                        $query->the_post();
+                    $query->the_post();
 
-                        if ($counter % 3 == 0)
+                    ?>
 
-                        ?>
-
-                            <div class="col-md-4 col-sm-6 col-xs-6 equal-height">
-                                <div class="box-container">
-                                    <div class="title-container">
-                                        <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
-                                    </div>
-                                    <div class="content-container">
-                                        <div class="content">
-                                            <?php the_post_thumbnail('thumbnail', array('class' => 'aligncenter img-responsive')); ?>
-                                        </div>
-                                    </div>
-                                    <div class="more-link aligncenter"><a href="<?php echo get_permalink(); ?>">Vai alla pagina</a></div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="box-container">
+                            <div class="content-container">
+                                <div class="content">
+                                    <a href="<?php echo get_permalink(); ?>">
+                                        <?php the_post_thumbnail('thumbnail', array('class' => 'aligncenter img-responsive')); ?>
+                                    </a>
                                 </div>
                             </div>
-
+                            <div class="title-container">
+                                <h2 class="title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            </div>
                         </div>
+                    </div>
 
-                        <?php
+                    <?php
 
-                        $counter++;
+                endwhile;
 
-                    endwhile;
-
-                    wp_reset_postdata();
+                wp_reset_postdata();
                 ?>
 
-                <?php get_template_part('includes/other', 'posts'); ?>
+            </div>
 
-            <?php endwhile; ?>
+            <?php get_template_part('includes/other', 'posts'); ?>
 
-        </div>
+        <?php endwhile; ?>
 
-    <?php endif; ?>
+    </div>
 
-</div>
+<?php endif; ?>
+
+    </div>
 
 <?php get_template_part('includes/teams', 'carousel'); ?>
 
